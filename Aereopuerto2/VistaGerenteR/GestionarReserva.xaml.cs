@@ -27,6 +27,7 @@ namespace Aereopuerto2.VistaGerenteR
             GetConductores();
         }
         EmpleadoServices services = new EmpleadoServices();
+        ClienteServices services2 = new ClienteServices();
 
         public void GetReserva(object sender, RoutedEventArgs e)
         {
@@ -49,17 +50,14 @@ namespace Aereopuerto2.VistaGerenteR
             switch (txtSolicitud.Text)
             {
                 case "Aceptable":
-                    BtnModificar.IsEnabled = false;
                     BtnCancelarR.IsEnabled = false;
                     txtEstatus.Text = "En espera";
                     break;
                 case "Modificable":
-                    BtnAceptar.IsEnabled = false;
                     BtnCancelarR.IsEnabled = false;
                     txtEstatus.Text = "En espera";
                     break;
                 case "Cancelar":
-                    BtnModificar.IsEnabled = false;
                     BtnAceptar.IsEnabled = false;
                     txtEstatus.Text = "En espera";
                     break;
@@ -76,6 +74,29 @@ namespace Aereopuerto2.VistaGerenteR
             MenuGerenteR vista = new MenuGerenteR();
             vista.Show();
             Close();
+        }
+
+        private void BtnCancelarR_Click(object sender, RoutedEventArgs e)
+        {
+            int userId = Convert.ToInt32(txtNoReserva.Text);
+            Cliente cliente = new Cliente();
+            cliente.PKCliente = userId;
+            services2.DeleteCliente(userId);
+            MessageBox.Show("Reserva Cancelada");
+            txtSolicitud.Clear();
+            txtNoReserva.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtEdad.Clear();
+            txtINE.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
+            cbxServicio.SelectedItem = null;
+            CbHoraConductor.SelectedItem = null;
+            CbHoraHotel.SelectedItem = null;
+            txtPasajeros.Clear();
+            CbNombreConductor.SelectedItem = null;
+            txtEstatus.Clear();
         }
     }
 }
