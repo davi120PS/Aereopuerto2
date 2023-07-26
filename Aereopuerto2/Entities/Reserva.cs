@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Aereopuerto2.Entities
 {
-    public class Reservas : Empleados
+    public class Reserva : Empleado
     {
         [Key] public int PKReservas { get; set; }
     }

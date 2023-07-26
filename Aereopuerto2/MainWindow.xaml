@@ -64,9 +64,9 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Button x:Name="BtnConR" Content="Consultar Reserva" HorizontalAlignment="Center" Margin="0,324,0,0" VerticalAlignment="Top" Height="50" Width="162" FontSize="16" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" />
-        <Button x:Name="BtnGenR" Content="Generar Reserva" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" Width="162" Height="50" FontSize="16" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" />
-        <Button x:Name="BtnLogin" Content="LoginEmpleado" HorizontalAlignment="Left" Margin="630,36,0,0" VerticalAlignment="Top" Width="143" Height="30" FontSize="16" Background="#FF3A62D7" BorderBrush="#FFF7F2F2" Foreground="White" FontFamily="Cascadia Code"/>
+        <Button x:Name="BtnConR" Content="Consultar Reserva" HorizontalAlignment="Center" Margin="0,324,0,0" VerticalAlignment="Top" Height="50" Width="162" FontSize="16" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Click="BtnConR_Click"/>
+        <Button x:Name="BtnGenR" Content="Generar Reserva" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" Width="162" Height="50" FontSize="16" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Click="BtnGenR_Click" />
+        <Button x:Name="BtnLogin" Content="LoginEmpleado" HorizontalAlignment="Left" Margin="630,36,0,0" VerticalAlignment="Top" Width="143" Height="30" FontSize="16" Background="#FF3A62D7" BorderBrush="#FFF7F2F2" Foreground="White" FontFamily="Cascadia Code" Click="BtnLogin_Click"/>
         <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="80" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Center" Height="181" Margin="0,36,0,0" VerticalAlignment="Top" Width="304" Source="/Img/Logo.png" Stretch="Fill"/>
 

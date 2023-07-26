@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Aereopuerto2.Entities
 {
-    public class Empleados
+    public class Empleado
     {
         [Key] public int PKEmpleado { get; set; }
         public string Nombre { get; set; }
-        public string Puesto { get; set; }
+        public string? Puesto { get; set; }
         public string Matricula { get; set; }
-        public string Constraseña { get; set; }
+        public string Contraseña { get; set; }
         public string Correo { get; set; }
         public string Sexo { get; set; }
     }

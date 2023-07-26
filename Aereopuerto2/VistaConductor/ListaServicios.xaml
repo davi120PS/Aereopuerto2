@@ -1,0 +1,23 @@
+﻿<Window x:Class="Aereopuerto2.VistaConductor.ListaServicios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aereopuerto2.VistaConductor"
+        mc:Ignorable="d"
+        Title="ListaServicios" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="ClientesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin ="130,111,96,75" SelectionChanged="ClientesTable_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding PKCliente}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Tel" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Servicio" Binding="{Binding TypeService}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="79" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="98" Margin="657,8,0,0" VerticalAlignment="Top" Width="118" Source="/Img/conductor.png" Stretch="Fill"/>
+        <Label Content="Traslados asignados" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="35" FontFamily="Cascadia Mono" Foreground="#FF3A62D7"/>
+    </Grid>
+</Window>

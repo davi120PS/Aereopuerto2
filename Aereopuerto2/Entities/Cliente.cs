@@ -10,14 +10,15 @@ namespace Aereopuerto2.Entities
     public class Cliente
     {
         [Key] public int PKCliente { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public int Edad { get; set; }
         public string INE { get; set; }
-        public int Phone { get; set; }
-        public string Email { get; set; }
-        public string TypeService { get; set; }
-        public int Passengers { get; set; }
-        public int NoReserve { get; set; }
+        public int Telefono { get; set; }
+        public string Correo { get; set; }
+        public string TipoServicio { get; set; }
+        public int Pasajeros { get; set; }
+        //public int NoReserva { get; set; }
+        public string Solicitud { get; set; }
     }
 }

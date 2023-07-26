@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Img\conductor.png" />
     <None Remove="Img\Logo.png" />
     <None Remove="Img\RectanguloAzul.png" />
   </ItemGroup>
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Img\conductor.png" />
     <Resource Include="Img\Logo.png" />
     <Resource Include="Img\RectanguloAzul.png" />
   </ItemGroup>

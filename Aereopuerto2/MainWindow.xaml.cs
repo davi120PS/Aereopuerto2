@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aereopuerto2.VistaCliente;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,24 @@ namespace Aereopuerto2
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Login Login = new Login();
+            Login.Show();
+            Close();
+        }
+        private void BtnGenR_Click(object sender, RoutedEventArgs e)
+        {
+            ReservaCliente vista = new ReservaCliente();
+            vista.Show();
+            Close();
+        }
+        private void BtnConR_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultaCliente vista = new ConsultaCliente();
+            vista.Show();
+            Close();
         }
     }
 }

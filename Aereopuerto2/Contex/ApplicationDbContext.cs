@@ -16,9 +16,10 @@ namespace Aereopuerto2.Contex
             optionsBuilder.UseMySQL("server=localhost; database=Aereopuerto23AM; user=root; password=");
         }
         //Mapeo de la BD
-        public DbSet<Cliente> Client { get; set; }
+        public DbSet<Empleado> Empleado { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Conductor> Conductor { get; set; }
-        public DbSet<Reservas> Reservas { get; set; }
-        public DbSet<Sistemas> Sistemas { get; set; }
+        public DbSet<Reserva> Reserva { get; set; }
+        public DbSet<Sistema> Sistema { get; set; }
     }
 }
