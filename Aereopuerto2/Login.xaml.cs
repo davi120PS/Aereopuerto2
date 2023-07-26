@@ -1,6 +1,7 @@
 ﻿using Aereopuerto2.Contex;
 using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
+using Aereopuerto2.VistaConductor;
 using Aereopuerto2.VistaGerenteR;
 using Aereopuerto2.VistaSistema;
 using System;
@@ -53,8 +54,8 @@ namespace Aereopuerto2
                             Close();
                             break;
                         case "Conductor":
-                            //MenuAdmin sistema = new MenuAdmin();
-                            //sistema.Show();
+                            ListaServicios listaServicios = new ListaServicios();
+                            listaServicios.Show();
                             Close();
                             break;
                         case "Sistema":

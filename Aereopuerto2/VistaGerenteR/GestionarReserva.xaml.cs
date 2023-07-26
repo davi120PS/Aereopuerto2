@@ -51,14 +51,17 @@ namespace Aereopuerto2.VistaGerenteR
                 case "Aceptable":
                     BtnModificar.IsEnabled = false;
                     BtnCancelarR.IsEnabled = false;
+                    txtEstatus.Text = "En espera";
                     break;
                 case "Modificable":
                     BtnAceptar.IsEnabled = false;
                     BtnCancelarR.IsEnabled = false;
+                    txtEstatus.Text = "En espera";
                     break;
-                case "Cancelabre":
+                case "Cancelar":
                     BtnModificar.IsEnabled = false;
                     BtnAceptar.IsEnabled = false;
+                    txtEstatus.Text = "En espera";
                     break;
             }
         }

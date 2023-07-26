@@ -25,6 +25,7 @@ namespace Aereopuerto2.VistaSistema
         public ListaEmpleados()
         {
             InitializeComponent();
+            GetEmpleadosTable();
         }
         EmpleadoServices services = new EmpleadoServices();
         private void BtnAddEmp_Click(object sender, RoutedEventArgs e)
@@ -54,7 +55,7 @@ namespace Aereopuerto2.VistaSistema
                 else
                     MessageBox.Show("Faltan datos por llenar");
             }
-            /*else
+            else
             {
                 int Id = Convert.ToInt32(txtPKEmpleado.Text);
                 Empleado empleado = new Empleado()
@@ -69,7 +70,7 @@ namespace Aereopuerto2.VistaSistema
                 };
                 services.Update(empleado);
                 MessageBox.Show("Empleado actualizado");
-                //GetEmpleadosTable();
+                GetEmpleadosTable();
                 txtPKEmpleado.Clear();
                 txtNombre.Clear();
                 CbxPuesto.SelectedItem = null;
@@ -77,7 +78,7 @@ namespace Aereopuerto2.VistaSistema
                 txtContraseña.Clear();
                 txtCorreo.Clear();
                 CbxSexo.SelectedItem = null;
-            }*/
+            }
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
@@ -91,7 +92,7 @@ namespace Aereopuerto2.VistaSistema
             txtCorreo.Text = empleados.Correo.ToString();
             CbxSexo.Text = empleados.Sexo.ToString();
         }
-        private void BtnDarBaja_Click(object sender, RoutedEventArgs e)
+        private void QuitarCuenta(object sender, RoutedEventArgs e)
         {
             if (txtPKEmpleado.Text == "")
             {
@@ -105,14 +106,10 @@ namespace Aereopuerto2.VistaSistema
                     Empleado empleado = new Empleado()
                     {
                         PKEmpleado = Id,
-                        Nombre = txtNombre.Text,
-                        Puesto = CbxPuesto.Text,
-                        Matricula = txtMatricula.Text,
-                        Contraseña = txtContraseña.Text,
-                        Sexo = CbxSexo.Text,
-                        Correo = txtCorreo.Text
+                        Matricula = null,
+                        Contraseña = null
                     };
-                    services.Update(empleado);
+                    services.QuitarCuentas(empleado);
                     MessageBox.Show("Empleado dado de baja");
                     GetEmpleadosTable();
                     txtPKEmpleado.Clear();

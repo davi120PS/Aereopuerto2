@@ -12,9 +12,9 @@
         <Label Content="Reservas" HorizontalAlignment="Left" Margin="361,37,0,0" VerticalAlignment="Top" Foreground="#FF3A62D7" FontFamily="Cascadia Mono" FontSize="34                "/>
         <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="183,106,92,80">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="NoReserva" Binding="{Binding NoReserve}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Apellido" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="NoReserva" Binding="{Binding PKCliente}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" />
                 <DataGridTextColumn Header="Solicitud" Binding="{Binding Solicitud}" />
 
                 <DataGridTemplateColumn Header="Select">

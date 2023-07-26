@@ -17,9 +17,16 @@
         <Label Content="Contraseña" HorizontalAlignment="Left" Height="27" Margin="19,320,0,0" VerticalAlignment="Top" Width="176" FontSize="15"/>
         <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="30" Margin="19,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
         <Label Content="Puesto" HorizontalAlignment="Left" Height="27" Margin="18,214,0,0" VerticalAlignment="Top" Width="176" FontSize="15"/>
-        <ComboBox x:Name="CbxPuesto" HorizontalAlignment="Left" Height="30" Margin="18,241,0,0" VerticalAlignment="Top" Width="176"/>
+        <ComboBox x:Name="CbxPuesto" HorizontalAlignment="Left" Height="30" Margin="18,241,0,0" VerticalAlignment="Top" Width="176">
+            <ComboBoxItem Content="Conductor"/>
+            <ComboBoxItem Content="Sistema"/>
+            <ComboBoxItem Content="Reservas"/>
+        </ComboBox>
         <Label Content="Sexo" HorizontalAlignment="Left" Height="27" Margin="19,380,0,0" VerticalAlignment="Top" Width="176" FontSize="15"/>
-        <ComboBox x:Name="CbxSexo" HorizontalAlignment="Left" Height="30" Margin="19,409,0,0" VerticalAlignment="Top" Width="176"/>
+        <ComboBox x:Name="CbxSexo" HorizontalAlignment="Left" Height="30" Margin="19,409,0,0" VerticalAlignment="Top" Width="176">
+            <ComboBoxItem Content="Hombre"/>
+            <ComboBoxItem Content="Mujer"/>
+        </ComboBox>
         <Label Content="Correo" HorizontalAlignment="Left" Height="30" Margin="19,440,0,0" VerticalAlignment="Top" Width="176" FontSize="15"/>
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="30" Margin="19,466,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
         <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="64,49,0,0" VerticalAlignment="Top" Height="41" Width="116" Background="#FFFFF506" FontSize="20" Click="BtnBack_Click"/>
@@ -41,10 +48,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Dar de baja">
+                <DataGridTemplateColumn Header="QuitarCuenta">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="DarBaja" Click="BtnDarBaja_Click"/>
+                            <Button Content="QuitarCuenta" Click="QuitarCuenta"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

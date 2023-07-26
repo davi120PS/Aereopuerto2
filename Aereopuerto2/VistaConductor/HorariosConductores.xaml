@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="HorariosConductores" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="ClientesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin ="130,111,96,75" SelectionChanged="ClientesTable_SelectionChanged">
+        <DataGrid x:Name="ClientesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin ="130,111,96,75">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PKConductor}"/>
                 <DataGridTextColumn Header="Id" Binding="{Binding FKEmpleado}"/>
@@ -17,5 +17,6 @@
                 <DataGridTextColumn Header="Servicio" Binding="{Binding TypeService}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="Horarios de conductor" HorizontalAlignment="Left" Margin="195,42,0,0" VerticalAlignment="Top" Foreground="#FF3A62D7" FontFamily="Cascadia Mono" FontSize="34                "/>
     </Grid>
 </Window>

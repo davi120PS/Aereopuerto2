@@ -44,6 +44,7 @@ namespace Aereopuerto2.VistaCliente
             if (!string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtApellido.Text))
             {
                 services.Add(cliente);
+                MessageBox.Show("Reserva generada exitosamente");
                 txtNombre.Clear();
                 txtApellido.Clear();
                 txtEdad.Clear();
@@ -53,11 +54,12 @@ namespace Aereopuerto2.VistaCliente
                 cbxServicio.Items.Clear();
                 txtPasajeros.Clear();
                 txtNoReserva.Clear();
-                MessageBox.Show("Los datos han sido agregados correctamente");
             }
             else
-                MessageBox.Show("Los datos no sido agregados correctamente");
-            MessageBox.Show("Reserva generada exitosamente");
+                MessageBox.Show("Los datos no han sido agregados correctamente");
+            
+
+
             MainWindow interfaz = new MainWindow();
             interfaz.Show();
             Close();

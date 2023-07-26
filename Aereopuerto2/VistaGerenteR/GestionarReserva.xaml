@@ -44,10 +44,23 @@
             <ComboBoxItem Content="11PM"/>
             <ComboBoxItem Content="12PM"/>
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Margin="577,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"/>
+        <ComboBox x:Name="CbHoraHotel" HorizontalAlignment="Left" Margin="576,205,0,0" VerticalAlignment="Top" Width="210">
+            <ComboBoxItem Content="1PM"/>
+            <ComboBoxItem Content="2PM"/>
+            <ComboBoxItem Content="3PM"/>
+            <ComboBoxItem Content="4PM"/>
+            <ComboBoxItem Content="5PM"/>
+            <ComboBoxItem Content="6PM"/>
+            <ComboBoxItem Content="7PM"/>
+            <ComboBoxItem Content="8PM"/>
+            <ComboBoxItem Content="9PM"/>
+            <ComboBoxItem Content="10PM"/>
+            <ComboBoxItem Content="11PM"/>
+            <ComboBoxItem Content="12PM"/>
+        </ComboBox>
         <TextBox x:Name="txtPasajeros" HorizontalAlignment="Left" Margin="577,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>
-        <ComboBox x:Name="CbNombreConductor" HorizontalAlignment="Left" Margin="581,275,0,0" VerticalAlignment="Top" Width="203" SelectedIndex="210"/>
-        <TextBox HorizontalAlignment="Left" Margin="577,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>
+        <ComboBox x:Name="CbNombreConductor" HorizontalAlignment="Left" Margin="578,275,0,0" VerticalAlignment="Top" Width="203" SelectedIndex="210"/>
+        <TextBox x:Name="txtEstatus" HorizontalAlignment="Left" Margin="577,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>
         <Label Content="Solicitud" Margin="483,62,261,0" VerticalAlignment="Top" Height="34"/>
         <TextBox x:Name="txtSolicitud" HorizontalAlignment="Left" Margin="565,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>
         <ComboBox x:Name="cbxServicio" HorizontalAlignment="Left" Margin="577,133,0,0" VerticalAlignment="Top" Width="210" Height="22" IsEnabled="False">

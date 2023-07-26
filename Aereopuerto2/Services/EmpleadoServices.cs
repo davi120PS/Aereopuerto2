@@ -72,6 +72,24 @@ namespace Aereopuerto2.Services
                 throw new Exception("Sucedió un error" + ex.Message);
             }
         }
+        public void QuitarCuentas(Empleado request)//recibe todos los datos del empleado
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Empleado update = _context.Empleado.Find(request.PKEmpleado);
+                    update.Matricula = request.Matricula;
+                    update.Contraseña = request.Contraseña;
+                    _context.Empleado.Update(update);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Sucedió un error" + ex.Message);
+            }
+        }
         public List<Empleado> GetEmpleados()
         {
             try
@@ -87,14 +105,14 @@ namespace Aereopuerto2.Services
                 throw new Exception("Ocurrió un error " + ex.Message);
             }
         }
-        public List<Conductor> GetConductores()
+        public List<Empleado> GetConductores()
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Conductor> conductor = _context.Conductor.ToList();
-                    return conductor;
+                    List<Empleado> empleados = _context.Empleado.Where(e => e.Puesto == "Conductor").ToList();
+                    return empleados;
                 }
             }
             catch (Exception ex)
