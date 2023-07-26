@@ -68,7 +68,7 @@ namespace Aereopuerto2.VistaCliente
                 Correo = txtCorreo.Text,
                 TipoServicio = cbxServicio.Text,
                 Pasajeros = int.Parse(txtPasajeros.Text),
-                Solicitud = "Modificar"
+                Solicitud = "Modificable"
             };
             services.Update(usuario);
             MessageBox.Show("Cliente actualizado");

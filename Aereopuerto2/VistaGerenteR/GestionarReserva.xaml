@@ -69,8 +69,7 @@
             <ComboBoxItem Content="Premium"/>
             <ComboBoxItem Content="VIP"/>
         </ComboBox>
-        <Button x:Name="BtnAceptar" Content="Confirmar Reserva" HorizontalAlignment="Center" Margin="0,345,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="20" Width="160"/>
-        <Button x:Name="BtnModificar" Content="Modificar Reserva" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" Height="20" Width="160"/>
-        <Button x:Name="BtnCancelarR" Content="Cancelar Reserva" HorizontalAlignment="Center" Margin="0,395,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" Width="160"/>
+        <Button x:Name="BtnAceptar" Content="Confirmar Reserva" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="20" Width="160"/>
+        <Button x:Name="BtnCancelarR" Content="Cancelar Reserva" HorizontalAlignment="Center" Margin="0,386,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" Width="160" Click="BtnCancelarR_Click"/>
     </Grid>
 </Window>

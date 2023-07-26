@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
 
@@ -79,6 +80,30 @@ namespace Aereopuerto2.Services
             catch (Exception ex)
             {
                 throw new Exception("Sucedió un error" + ex.Message);
+            }
+        }
+        public void DeleteCliente(int UserId)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Cliente cliente = _context.Cliente.Find(UserId);
+                    if (cliente != null)
+                    {
+                        _context.Remove(cliente);
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reserva cancelada");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("ERROR: " + ex.Message);
             }
         }
 
