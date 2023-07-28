@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Aereopuerto2.Migrations
 {
     /// <inheritdoc />
-    public partial class Aereopuerto23AM : Migration
+    public partial class example : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -119,10 +119,37 @@ namespace Aereopuerto2.Migrations
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
+            migrationBuilder.CreateTable(
+                name: "Horarios",
+                columns: table => new
+                {
+                    PKHorario = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    FKConductor = table.Column<int>(type: "int", nullable: true),
+                    Conductores = table.Column<string>(type: "longtext", nullable: false),
+                    Horarios = table.Column<string>(type: "longtext", nullable: false),
+                    Estatus = table.Column<string>(type: "longtext", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Horarios", x => x.PKHorario);
+                    table.ForeignKey(
+                        name: "FK_Horarios_Conductor_FKConductor",
+                        column: x => x.FKConductor,
+                        principalTable: "Conductor",
+                        principalColumn: "PKConductor");
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Conductor_FKEmpleado",
                 table: "Conductor",
                 column: "FKEmpleado");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Horarios_FKConductor",
+                table: "Horarios",
+                column: "FKConductor");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reserva_FKEmpleado",
@@ -142,13 +169,16 @@ namespace Aereopuerto2.Migrations
                 name: "Cliente");
 
             migrationBuilder.DropTable(
-                name: "Conductor");
+                name: "Horarios");
 
             migrationBuilder.DropTable(
                 name: "Reserva");
 
             migrationBuilder.DropTable(
                 name: "Sistema");
+
+            migrationBuilder.DropTable(
+                name: "Conductor");
 
             migrationBuilder.DropTable(
                 name: "Empleado");

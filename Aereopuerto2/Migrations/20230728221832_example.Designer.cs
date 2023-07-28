@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230726161923_Aereopuerto23AM")]
-    partial class Aereopuerto23AM
+    [Migration("20230728221832_example")]
+    partial class example
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,6 +132,33 @@ namespace Aereopuerto2.Migrations
                     b.ToTable("Empleado");
                 });
 
+            modelBuilder.Entity("Aereopuerto2.Entities.Horario", b =>
+                {
+                    b.Property<int>("PKHorario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Conductores")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Estatus")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("FKConductor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Horarios")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("PKHorario");
+
+                    b.HasIndex("FKConductor");
+
+                    b.ToTable("Horarios");
+                });
+
             modelBuilder.Entity("Aereopuerto2.Entities.Reserva", b =>
                 {
                     b.Property<int>("PKReservas")
@@ -175,6 +202,15 @@ namespace Aereopuerto2.Migrations
                         .HasForeignKey("FKEmpleado");
 
                     b.Navigation("Empleados");
+                });
+
+            modelBuilder.Entity("Aereopuerto2.Entities.Horario", b =>
+                {
+                    b.HasOne("Aereopuerto2.Entities.Conductor", "Conductor")
+                        .WithMany()
+                        .HasForeignKey("FKConductor");
+
+                    b.Navigation("Conductor");
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Reserva", b =>

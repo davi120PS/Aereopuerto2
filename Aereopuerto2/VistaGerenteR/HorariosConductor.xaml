@@ -1,0 +1,32 @@
+﻿<Window x:Class="Aereopuerto2.VistaGerenteR.HorariosConductor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aereopuerto2.VistaGerenteR"
+        mc:Ignorable="d"
+        Title="HorariosConductor" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="164,144,164,42">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Conductor" Binding="{Binding Conductores}" />
+                <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
+                <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="80" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="112" Margin="593,10,0,0" VerticalAlignment="Top" Width="183" Source="/Img/Logo.png" Stretch="Fill"/>
+        <Label Content="Horarios de conductor" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Cascadia Mono" Foreground="#FF3A62D7"/>
+        <Image HorizontalAlignment="Left" Height="155" Margin="691,283,0,0" VerticalAlignment="Top" Width="58" Source="/Img/RectanguloAzul.png" Stretch="Fill" RenderTransformOrigin="0.414,0.498">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-129.107"/>
+                    <TranslateTransform X="17.132" Y="8.151"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+    </Grid>
+</Window>
