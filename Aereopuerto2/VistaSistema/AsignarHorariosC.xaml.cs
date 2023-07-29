@@ -37,6 +37,7 @@ namespace Aereopuerto2.VistaSistema
                 {
                     Horarios = CbHorario.Text,
                     Conductores = CbConductor.Text,
+                    Estatus = "",
                     FKConductor = int.Parse(CbConductor.SelectedValue.ToString())
                 };
 

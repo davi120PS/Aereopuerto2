@@ -7,17 +7,21 @@
         mc:Ignorable="d"
         Title="ListaServicios" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="ClientesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin ="130,111,96,75" SelectionChanged="ClientesTable_SelectionChanged">
+
+        <DataGrid x:Name="ClientesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin ="179,162,179,74" SelectionChanged="ClientesTable_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PKCliente}"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Apellido" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Tel" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="Servicio" Binding="{Binding TypeService}"/>
+
             </DataGrid.Columns>
         </DataGrid>
         <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="79" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="98" Margin="657,8,0,0" VerticalAlignment="Top" Width="118" Source="/Img/conductor.png" Stretch="Fill"/>
-        <Label Content="Traslados asignados" HorizontalAlignment="Center" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="35" FontFamily="Cascadia Mono" Foreground="#FF3A62D7"/>
+        <Label Content="Traslados asignados" HorizontalAlignment="Center" Margin="0,93,0,0" VerticalAlignment="Top" FontSize="35" FontFamily="Cascadia Mono" Foreground="#FF3A62D7" IsEnabled="False"/>
+        <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="99,26,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Background="#FF3A62D7" Foreground="White" Height="29" Width="69" Click="BtnBack_Click"/>
+        <Button x:Name="BtnHorario" Content="Horario" HorizontalAlignment="Left" Margin="683,162,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Foreground="White" Background="#FF3A62D7" Height="32" Width="66" Click="BtnHorario_Click"/>
     </Grid>
 </Window>

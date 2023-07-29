@@ -1,4 +1,6 @@
-﻿using Aereopuerto2.Services;
+﻿using Aereopuerto2.Entities;
+using Aereopuerto2.Services;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +25,28 @@ namespace Aereopuerto2.VistaConductor
         public ListaServicios()
         {
             InitializeComponent();
-            services.GetClientes();
         }
         EmpleadoServices services = new EmpleadoServices();
-
+        ConductorSevices conductorServices = new ConductorSevices();
+        MasServices masServices = new MasServices();
+        
         private void ClientesTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            Close();
+        }
+
+        private void BtnHorario_Click(object sender, RoutedEventArgs e)
+        {
+            HorariosConductores horarios = new HorariosConductores();
+            horarios.Show();
+            Close();
         }
     }
 }
