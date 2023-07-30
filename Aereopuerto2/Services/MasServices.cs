@@ -50,6 +50,7 @@ namespace Aereopuerto2.Services
                     update.Horarios = request.Horarios;
                     update.Conductores = request.Conductores;
                     update.PKHorario = request.PKHorario;
+                    update.Estatus = request.Estatus;
 
                     _context.Horarios.Update(update);
                     _context.SaveChanges();

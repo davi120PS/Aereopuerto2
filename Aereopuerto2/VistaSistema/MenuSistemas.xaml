@@ -9,11 +9,16 @@
     <Grid>
         <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="89,19,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Background="#FF3A62D7" Foreground="White" Width="100" Height="36" Click="BtnBack_Click"/>
         <Label Content="Encargado de Sistemas" HorizontalAlignment="Left" Margin="139,79,0,0" VerticalAlignment="Top" Foreground="#FF3A62D7" FontFamily="Cascadia Mono" FontSize="34                "/>
-        <Button x:Name="BtnListEmpleados" Content=" Lista de &#xD;empleados" HorizontalAlignment="Left" Margin="211,214,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" Width="209" FontSize="16" Foreground="White" Background="#FF3A62D7" Click="BtnListEmpleados_Click"/>
-        <Button x:Name="BtnConductores" Content="  Horarios &#xD;Conductores" HorizontalAlignment="Left" Margin="212,275,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" FontSize="16" Width="208" Background="#FF3A62D7" Foreground="White" Click="BtnConductores_Click"/>
-        <Button x:Name="BtnMantenimiento" Content="Mantenimiento &#xD;del sistema" HorizontalAlignment="Left" Margin="446,214,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" Width="209" FontSize="16" Foreground="White" Background="#FF3A62D7" Click="BtnMantenimiento_Click"/>
-        <Button x:Name="BtnRendimiento" Content="Rendimiento &#xD;del sistema" HorizontalAlignment="Left" Margin="446,275,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" FontSize="16" Width="208" Background="#FF3A62D7" Foreground="White" Click="BtnRendimiento_Click"/>
+        <Button x:Name="BtnListEmpleados" Content=" Lista de &#xD;empleados" HorizontalAlignment="Left" Margin="171,214,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" Width="229" FontSize="16" Foreground="White" Background="#FF3A62D7" Click="BtnListEmpleados_Click"/>
+        <Button x:Name="BtnConductores" Content="  Horarios &#xD;Conductores" HorizontalAlignment="Left" Margin="171,294,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" FontSize="16" Width="229" Background="#FF3A62D7" Foreground="White" Click="BtnConductores_Click"/>
         <Image Margin="0,0,720,0" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="119" Margin="586,10,0,0" VerticalAlignment="Top" Width="200" Source="/Img/Logo.png" Stretch="Fill"/>
+        <Label Content="Mantenimiento del sistema" HorizontalAlignment="Left" Margin="428,214,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Cascadia Code"/>
+        <Label Content="Rendimiento del sistema" HorizontalAlignment="Left" Margin="433,294,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Cascadia Code"/>
+        <CheckBox Content="Realizado" HorizontalAlignment="Left" Margin="456,250,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <CheckBox Content="En espera" HorizontalAlignment="Left" Margin="550,250,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <CheckBox Content="Optimo" HorizontalAlignment="Left" Margin="433,330,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <CheckBox Content="Bueno" HorizontalAlignment="Left" Margin="516,330,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <CheckBox Content="Mejorable" HorizontalAlignment="Left" Margin="586,330,0,0" VerticalAlignment="Top" FontSize="14"/>
     </Grid>
 </Window>

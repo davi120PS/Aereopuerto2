@@ -7,16 +7,35 @@
         mc:Ignorable="d"
         Title="HorariosConductores" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="ClientesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin ="130,111,96,75">
+        <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="235,136,92,50">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding PKConductor}"/>
-                <DataGridTextColumn Header="Id" Binding="{Binding FKEmpleado}"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Matricula}"/>
-                <DataGridTextColumn Header="Tel" Binding="{Binding Horario}"/>
-                <DataGridTextColumn Header="Servicio" Binding="{Binding TypeService}"/>
+                <DataGridTextColumn Header="Conductor" Binding="{Binding Conductores}" />
+                <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
+                <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}" />
+
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Select" Click="EditItem" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
+
         </DataGrid>
-        <Label Content="Horarios de conductor" HorizontalAlignment="Left" Margin="195,42,0,0" VerticalAlignment="Top" Foreground="#FF3A62D7" FontFamily="Cascadia Mono" FontSize="34                "/>
+
+        <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="81" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="112" Margin="659,10,0,0" VerticalAlignment="Top" Width="111" Source="/Img/conductor.png" Stretch="Fill"/>
+        <Label Content="Horarios de conductor" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Cascadia Mono" Foreground="#FF3A62D7" Width="330"/>
+        <ComboBox x:Name="CbEstatus" HorizontalAlignment="Left" Margin="86,216,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Disponible"/>
+            <ComboBoxItem Content="No disponible"/>
+            <ComboBoxItem Content="En servicio"/>
+        </ComboBox>
+        <Label Content="Estatus" HorizontalAlignment="Left" Margin="122,185,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnEstatus" Content="Enviar Estatus" HorizontalAlignment="Left" Margin="92,263,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Mono" Height="24" Width="108" Click="BtnEstatus_Click"/>
+        <TextBox x:Name="txtPKHorario" HorizontalAlignment="Left" Margin="86,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="True"/>
+        <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="122,29,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" Foreground="White" Background="#FF3A62D7" Click="BtnBack_Click"/>
+
     </Grid>
 </Window>
