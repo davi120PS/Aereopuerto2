@@ -30,19 +30,20 @@ namespace Aereopuerto2.VistaCliente
         ClienteServices services = new ClienteServices();
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            Cliente cliente = new Cliente()
-            {
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Edad = int.Parse(txtEdad.Text),
-                INE = txtINE.Text,
-                Telefono = int.Parse(txtTelefono.Text),
-                Correo = txtCorreo.Text,
-                TipoServicio = cbxServicio.Text,
-                Pasajeros = int.Parse(txtPasajeros.Text)
-            };
+            
             if (!string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtApellido.Text))
             {
+                Cliente cliente = new Cliente()
+                {
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellido.Text,
+                    Edad = int.Parse(txtEdad.Text),
+                    INE = txtINE.Text,
+                    Telefono = int.Parse(txtTelefono.Text),
+                    Correo = txtCorreo.Text,
+                    TipoServicio = cbxServicio.Text,
+                    Pasajeros = int.Parse(txtPasajeros.Text)
+                };
                 services.Add(cliente);
                 MessageBox.Show("Reserva generada exitosamente");
                 txtNombre.Clear();
