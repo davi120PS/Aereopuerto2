@@ -8,7 +8,7 @@
         Title="MenuGerenteR" Height="450" Width="800">
     <Grid>
         <Button x:Name="BtnReservas" Content="Reservas" HorizontalAlignment="Left" Margin="360,198,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" Width="150" FontSize="16" Foreground="White" Background="#FF3A62D7" Click="BtnReservas_Click"/>
-        <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="360,290,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" FontSize="16" Width="150" Background="#FF3A62D7" Foreground="White" Click="BtnConductores_Click"/>
+        <Button x:Name="BtnConductores" Content="Conductores" HorizontalAlignment="Left" Margin="360,290,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code" Height="50" FontSize="16" Width="150" Background="#FF3A62D7" Foreground="White"/>
         <Image Margin="0,0,720,0" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Label Content="Gerente de Reservas" HorizontalAlignment="Left" Margin="139,79,0,0" VerticalAlignment="Top" Foreground="#FF3A62D7" FontFamily="Cascadia Mono" FontSize="34                "/>
         <Image HorizontalAlignment="Left" Height="119" Margin="586,10,0,0" VerticalAlignment="Top" Width="200" Source="/Img/Logo.png" Stretch="Fill"/>

@@ -1,6 +1,4 @@
-﻿using Aereopuerto2.Entities;
-using Aereopuerto2.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,45 +22,6 @@ namespace Aereopuerto2.VistaConductor
         public HorariosConductores()
         {
             InitializeComponent();
-            GetHorarioTable();
-        }
-        MasServices masServices = new MasServices();
-        ConductorSevices conductorSevices = new ConductorSevices();
-        public void GetHorarioTable()
-        {
-            HorariosTable.ItemsSource = masServices.GetHorarios();
-        }
-        public void EditItem(object sender, RoutedEventArgs e)
-        {
-            Horario horario = new Horario();
-            horario = (sender as FrameworkElement).DataContext as Horario;
-            txtPKHorario.Text = horario.PKHorario.ToString();
-            CbEstatus.Text = horario.Estatus.ToString();
-        }
-
-        private void BtnEstatus_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtPKHorario.Text != "")
-            {
-                int horarioId = Convert.ToInt32(txtPKHorario.Text);
-
-                Horario horario = new Horario()
-                {
-                    PKHorario = horarioId,
-                    Estatus = CbEstatus.Text,
-                };
-                MessageBox.Show("Estatus actualizado");
-                conductorSevices.Update(horario);
-                txtPKHorario.Clear();
-                GetHorarioTable();
-            }
-        }
-
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            ListaServicios listaServicios = new ListaServicios();
-            listaServicios.Show();
-            Close();
         }
     }
 }

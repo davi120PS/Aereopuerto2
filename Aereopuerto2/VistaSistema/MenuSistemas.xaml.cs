@@ -31,9 +31,7 @@ namespace Aereopuerto2.VistaSistema
         }
         private void BtnConductores_Click(object sender, RoutedEventArgs e)
         {
-            AsignarHorariosC asignarhorarios = new AsignarHorariosC();
-            asignarhorarios.Show();
-            Close();
+            MessageBox.Show("");
         }
         private void BtnMantenimiento_Click(object sender, RoutedEventArgs e)
         {
