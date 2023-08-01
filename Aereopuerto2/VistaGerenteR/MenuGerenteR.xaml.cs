@@ -35,5 +35,12 @@ namespace Aereopuerto2.VistaGerenteR
             vista.Show();
             Close();
         }
+
+        private void BtnConductores_Click(object sender, RoutedEventArgs e)
+        {
+            HorariosConductor horarios = new HorariosConductor();
+            horarios.Show();
+            Close();
+        }
     }
 }

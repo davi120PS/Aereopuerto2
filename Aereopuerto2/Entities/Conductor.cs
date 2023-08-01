@@ -16,7 +16,6 @@ namespace Aereopuerto2.Entities
         public int Licencia { get; set; }
         public DateTime FechaContratacion { get; set; }
         public string Horarios { get; set; }
-        //public bool Disponibilidad { get; set; }
         public int Calificaciones { get; set; }
         public string? NotasAdicionales { get; set; }
     }
