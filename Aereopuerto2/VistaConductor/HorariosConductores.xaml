@@ -11,7 +11,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Conductor" Binding="{Binding Conductores}" />
                 <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
-                <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}" />
+                <DataGridTextColumn Header="Estatus/Traslado" Binding="{Binding Estatus}" />
 
                 <DataGridTemplateColumn Header="Editar">
                     <DataGridTemplateColumn.CellTemplate>
@@ -31,6 +31,7 @@
             <ComboBoxItem Content="Disponible"/>
             <ComboBoxItem Content="No disponible"/>
             <ComboBoxItem Content="En servicio"/>
+            <ComboBoxItem Content="Traslado Completado"/>
         </ComboBox>
         <Label Content="Estatus" HorizontalAlignment="Left" Margin="122,185,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BtnEstatus" Content="Enviar Estatus" HorizontalAlignment="Left" Margin="92,263,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Mono" Height="24" Width="108" Click="BtnEstatus_Click"/>

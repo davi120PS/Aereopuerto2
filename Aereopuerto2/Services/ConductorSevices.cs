@@ -1,6 +1,7 @@
 ﻿using Aereopuerto2.Contex;
 using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,5 +40,90 @@ namespace Aereopuerto2.Services
                 throw new Exception(" Error " + ex.Message);
             }
         }
+        public void UpdateMessage(Chat request)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Chat update = _context.Chat.Find(request.PKChat);
+
+                    update.Mensaje = request.Mensaje;
+
+                    _context.Chat.Update(update);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(" Error " + ex.Message);
+            }
+        }
+        public void AddChat(Chat request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    //Los corchetes son como abrir y cerrar la base de datos
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Chat res = new Chat();
+                        res.Mensaje = request.Mensaje;
+                        res.FKCliente = request.FKCliente;
+                        res.FKConductor = request.FKConductor;
+                        _context.Chat.Add(res);
+                        _context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un error " + ex.Message);
+            }
+
+        }
+        public List<Chat> GetChat()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Chat> chat = _context.Chat.ToList();
+                    return chat;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
+            }
+        }
+        public void DeleteChat(int chatId)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Chat chat = _context.Chat.Find(chatId);
+                    if (chat != null)
+                    {
+                        _context.Remove(chat);
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se envio mensaje");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error" + ex.Message);
+            }
+        }
+
     }
 }
