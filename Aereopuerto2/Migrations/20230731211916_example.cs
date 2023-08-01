@@ -120,6 +120,32 @@ namespace Aereopuerto2.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Chat",
+                columns: table => new
+                {
+                    PKChat = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    FKCliente = table.Column<int>(type: "int", nullable: true),
+                    FKConductor = table.Column<int>(type: "int", nullable: true),
+                    Mensaje = table.Column<string>(type: "longtext", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chat", x => x.PKChat);
+                    table.ForeignKey(
+                        name: "FK_Chat_Cliente_FKCliente",
+                        column: x => x.FKCliente,
+                        principalTable: "Cliente",
+                        principalColumn: "PKCliente");
+                    table.ForeignKey(
+                        name: "FK_Chat_Conductor_FKConductor",
+                        column: x => x.FKConductor,
+                        principalTable: "Conductor",
+                        principalColumn: "PKConductor");
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Horarios",
                 columns: table => new
                 {
@@ -140,6 +166,16 @@ namespace Aereopuerto2.Migrations
                         principalColumn: "PKConductor");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Chat_FKCliente",
+                table: "Chat",
+                column: "FKCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Chat_FKConductor",
+                table: "Chat",
+                column: "FKConductor");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Conductor_FKEmpleado",
@@ -166,7 +202,7 @@ namespace Aereopuerto2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cliente");
+                name: "Chat");
 
             migrationBuilder.DropTable(
                 name: "Horarios");
@@ -176,6 +212,9 @@ namespace Aereopuerto2.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sistema");
+
+            migrationBuilder.DropTable(
+                name: "Cliente");
 
             migrationBuilder.DropTable(
                 name: "Conductor");

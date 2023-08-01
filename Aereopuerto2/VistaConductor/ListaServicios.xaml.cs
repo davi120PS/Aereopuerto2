@@ -25,6 +25,7 @@ namespace Aereopuerto2.VistaConductor
         public ListaServicios()
         {
             InitializeComponent();
+            GetClientesTable();
         }
         EmpleadoServices services = new EmpleadoServices();
         ConductorSevices conductorServices = new ConductorSevices();
@@ -34,7 +35,10 @@ namespace Aereopuerto2.VistaConductor
         {
 
         }
-
+        public void GetClientesTable()
+        {
+            ClientesTable.ItemsSource = services.GetClientes();
+        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
@@ -46,6 +50,13 @@ namespace Aereopuerto2.VistaConductor
         {
             HorariosConductores horarios = new HorariosConductores();
             horarios.Show();
+            Close();
+        }
+
+        private void BtnChat_Click(object sender, RoutedEventArgs e)
+        {
+            VistaChat chat = new VistaChat();
+            chat.Show();
             Close();
         }
     }
