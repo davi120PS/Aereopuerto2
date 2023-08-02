@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="259,132,68,54">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Conductor" Binding="{Binding Empleados.Nombre}" />
+                <DataGridTextColumn Header="Conductor" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
                 <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}" />
 
@@ -20,29 +20,19 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Delete">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete" Click="DeleteItem"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
 
         </DataGrid>
         <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="80" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="632,10,0,0" VerticalAlignment="Top" Width="158" Source="/Img/Logo.png" Stretch="Fill"/>
         <Label Content="Asignar Horarios" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Cascadia Mono" Foreground="#FF3A62D7"/>
-        <ComboBox x:Name="CbConductor" HorizontalAlignment="Left" Margin="113,208,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="CbHorario" HorizontalAlignment="Left" Margin="113,269,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="6AM-2PM"/>
+        <ComboBox x:Name="CbHorario" HorizontalAlignment="Left" Margin="113,204,0,0" VerticalAlignment="Top" Width="120"><ComboBoxItem Content="6AM-2PM"/>
             <ComboBoxItem Content="2PM-10"/>
             <ComboBoxItem Content="10PM-6AM"/>
         </ComboBox>
-        <Label Content="Asignar Conductor" HorizontalAlignment="Left" Margin="113,178,0,0" VerticalAlignment="Top"/>
-        <Label Content="Asignar Horario" HorizontalAlignment="Left" Margin="113,243,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BtnAsignar" Content="Asignar horario" HorizontalAlignment="Left" Margin="108,321,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" FontSize="14" Height="32" Width="130" Click="BtnAsignar_Click"/>
-        <TextBox x:Name="txtPKConductor" HorizontalAlignment="Left" Margin="113,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <Label Content="Asignar Horario" HorizontalAlignment="Left" Margin="113,178,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnAsignar" Content="Asignar horario" HorizontalAlignment="Left" Margin="108,256,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" FontSize="14" Height="32" Width="130" Click="BtnAsignar_Click"/>
+        <TextBox x:Name="txtPKEmpleado" HorizontalAlignment="Left" Margin="113,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="113,34,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="26" Width="89" Click="BtnBack_Click"/>
 
     </Grid>

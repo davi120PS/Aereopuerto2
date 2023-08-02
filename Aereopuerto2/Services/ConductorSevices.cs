@@ -20,17 +20,17 @@ namespace Aereopuerto2.Services
 {
     public class ConductorSevices
     {
-        public void Update(Horario request)
+        public void Update(Empleado request)
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    Horario update = _context.Horarios.Find(request.PKHorario);
+                    Empleado update = _context.Empleado.Find(request.PKEmpleado);
 
                     update.Estatus = request.Estatus;
 
-                    _context.Horarios.Update(update);
+                    _context.Empleado.Update(update);
                     _context.SaveChanges();
                 }
             }

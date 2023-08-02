@@ -25,76 +25,38 @@ namespace Aereopuerto2.VistaSistema
         {
             InitializeComponent();
             GetHorarioTable();
-            GetConductores();
         }
         MasServices masServices = new MasServices();
         EmpleadoServices empleadoservices = new EmpleadoServices();
         private void BtnAsignar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtPKConductor.Text == "")
+            if (txtPKEmpleado.Text != "")
             {
-                Conductor conductor = new Conductor()
-                {
-                    PKConductor = int.Parse(CbConductor.SelectedValue.ToString()),
-                    Horarios = CbHorario.Text,
-                    Estatus = "",
-                };
+                int horarioId = Convert.ToInt32(txtPKEmpleado.Text);
 
-                masServices.AsignarHorario(conductor);
+                Empleado horario = new Empleado()
+                {
+                    PKEmpleado = horarioId,
+                    Horarios = CbHorario.Text
+                };
                 MessageBox.Show("Horario asignado");
-                txtPKConductor.Clear();
-                CbConductor.Text = "";
-                CbHorario.Text = "";
-            }
-            else
-            {
-                int horarioId = Convert.ToInt32(txtPKConductor.Text);
-
-                Conductor conductor = new Conductor()
-                {
-                    PKConductor = horarioId,
-                    Horarios = CbHorario.Text,
-                    Estatus = "",
-                };
-                MessageBox.Show("Horario actualizado");
-                masServices.Update(conductor);
-                txtPKConductor.Clear();
-                CbConductor.Text = "";
+                masServices.UpdateHorario(horario);
+                txtPKEmpleado.Clear();
                 CbHorario.Text = "";
                 GetHorarioTable();
             }
         }
         public void GetHorarioTable()
         {
-            HorariosTable.ItemsSource = masServices.GetHorarios();
-        }
-        public void GetConductores()
-        {
-            CbConductor.ItemsSource = empleadoservices.GetConductores();
-            CbConductor.DisplayMemberPath = "Nombre";
-            CbConductor.SelectedValuePath = "PKEmpleado";
+            HorariosTable.ItemsSource = empleadoservices.GetConductores();
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
-            Conductor horario = new Conductor();
-            horario = (sender as FrameworkElement).DataContext as Conductor;
-            txtPKConductor.Text = horario.PKConductor.ToString();
+            Empleado horario = new Empleado();
+            horario = (sender as FrameworkElement).DataContext as Empleado;
+            txtPKEmpleado.Text = horario.PKEmpleado.ToString();
             CbHorario.Text = horario.Horarios.ToString();
-            CbConductor.Text = horario.PKConductor.ToString();
         }
-        public void DeleteItem(object sender, RoutedEventArgs e)
-        {
-            int horarioId = Convert.ToInt32(txtPKConductor.Text);
-            Conductor horario = new Conductor();
-            horario.PKConductor = horarioId;
-            masServices.DeleteHorario(horarioId);
-            MessageBox.Show("Horario eliminado");
-            txtPKConductor.Clear();
-            CbConductor.Text = "";
-            CbHorario.Text = "";
-            GetHorarioTable();
-        }
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             MenuSistemas menusistemas = new MenuSistemas();

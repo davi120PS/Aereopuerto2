@@ -26,34 +26,36 @@ namespace Aereopuerto2.VistaConductor
             InitializeComponent();
             GetHorarioTable();
         }
+        EmpleadoServices services = new EmpleadoServices();
         MasServices masServices = new MasServices();
         ConductorSevices conductorSevices = new ConductorSevices();
         public void GetHorarioTable()
         {
-            HorariosTable.ItemsSource = masServices.GetHorarios();
+            HorariosTable.ItemsSource = services.GetConductores();
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
-            Horario horario = new Horario();
-            horario = (sender as FrameworkElement).DataContext as Horario;
-            txtPKHorario.Text = horario.PKHorario.ToString();
+            Empleado horario = new Empleado();
+            horario = (sender as FrameworkElement).DataContext as Empleado;
+            txtPKEmpleado.Text = horario.PKEmpleado.ToString();
             CbEstatus.Text = horario.Estatus.ToString();
         }
 
         private void BtnEstatus_Click(object sender, RoutedEventArgs e)
         {
-            if (txtPKHorario.Text != "")
+            if (txtPKEmpleado.Text != "")
             {
-                int horarioId = Convert.ToInt32(txtPKHorario.Text);
+                int horarioId = Convert.ToInt32(txtPKEmpleado.Text);
 
-                Horario horario = new Horario()
+                Empleado horario = new Empleado()
                 {
-                    PKHorario = horarioId,
+                    PKEmpleado = horarioId,
                     Estatus = CbEstatus.Text,
                 };
                 MessageBox.Show("Estatus actualizado");
                 conductorSevices.Update(horario);
-                txtPKHorario.Clear();
+                txtPKEmpleado.Clear();
+                CbEstatus.Text = "";
                 GetHorarioTable();
             }
         }

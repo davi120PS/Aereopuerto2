@@ -16,5 +16,7 @@ namespace Aereopuerto2.Entities
         public string Contraseña { get; set; }
         public string Correo { get; set; }
         public string Sexo { get; set; }
+        public string? Horarios { get; set; }
+        public string? Estatus { get; set; }
     }
 }

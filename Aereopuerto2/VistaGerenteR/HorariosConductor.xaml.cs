@@ -25,10 +25,10 @@ namespace Aereopuerto2.VistaGerenteR
             InitializeComponent();
             GetHorarioTable();
         }
-        MasServices masServices = new MasServices();
+        EmpleadoServices services = new EmpleadoServices();
         public void GetHorarioTable()
         {
-            HorariosTable.ItemsSource = masServices.GetHorarios();
+            HorariosTable.ItemsSource = services.GetConductores();
         }
     }
 }

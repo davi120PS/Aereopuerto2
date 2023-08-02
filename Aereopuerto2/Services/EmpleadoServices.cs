@@ -40,6 +40,8 @@ namespace Aereopuerto2.Services
                         res.Contraseña = request.Contraseña;
                         res.Correo = request.Correo;
                         res.Sexo = request.Sexo;
+                        res.Estatus = request.Estatus;
+                        res.Horarios = request.Horarios;
                         _context.Empleado.Add(res);
                         _context.SaveChanges();
                     }
