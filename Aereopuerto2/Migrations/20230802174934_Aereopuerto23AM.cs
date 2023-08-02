@@ -68,6 +68,7 @@ namespace Aereopuerto2.Migrations
                     Licencia = table.Column<int>(type: "int", nullable: false),
                     FechaContratacion = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Horarios = table.Column<string>(type: "longtext", nullable: false),
+                    Estatus = table.Column<string>(type: "longtext", nullable: false),
                     Calificaciones = table.Column<int>(type: "int", nullable: false),
                     NotasAdicionales = table.Column<string>(type: "longtext", nullable: true)
                 },
@@ -88,11 +89,20 @@ namespace Aereopuerto2.Migrations
                 {
                     PKReservas = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    FKEmpleado = table.Column<int>(type: "int", nullable: true)
+                    FKEmpleado = table.Column<int>(type: "int", nullable: true),
+                    FKCliente = table.Column<int>(type: "int", nullable: true),
+                    HoraConductor = table.Column<string>(type: "longtext", nullable: false),
+                    HoraHotel = table.Column<string>(type: "longtext", nullable: false),
+                    Estatus = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reserva", x => x.PKReservas);
+                    table.ForeignKey(
+                        name: "FK_Reserva_Cliente_FKCliente",
+                        column: x => x.FKCliente,
+                        principalTable: "Cliente",
+                        principalColumn: "PKCliente");
                     table.ForeignKey(
                         name: "FK_Reserva_Empleado_FKEmpleado",
                         column: x => x.FKEmpleado,
@@ -209,6 +219,11 @@ namespace Aereopuerto2.Migrations
                 column: "FKConductor");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Reserva_FKCliente",
+                table: "Reserva",
+                column: "FKCliente");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reserva_FKEmpleado",
                 table: "Reserva",
                 column: "FKEmpleado");
@@ -235,10 +250,10 @@ namespace Aereopuerto2.Migrations
                 name: "Sistema");
 
             migrationBuilder.DropTable(
-                name: "Cliente");
+                name: "Conductor");
 
             migrationBuilder.DropTable(
-                name: "Conductor");
+                name: "Cliente");
 
             migrationBuilder.DropTable(
                 name: "Empleado");

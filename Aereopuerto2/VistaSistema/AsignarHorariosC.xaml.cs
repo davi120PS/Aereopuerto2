@@ -31,36 +31,34 @@ namespace Aereopuerto2.VistaSistema
         EmpleadoServices empleadoservices = new EmpleadoServices();
         private void BtnAsignar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtPKHorario.Text == "")
+            if (txtPKConductor.Text == "")
             {
-                Horario horario = new Horario()
+                Conductor conductor = new Conductor()
                 {
+                    PKConductor = int.Parse(CbConductor.SelectedValue.ToString()),
                     Horarios = CbHorario.Text,
-                    Conductores = CbConductor.Text,
                     Estatus = "",
-                    FKConductor = int.Parse(CbConductor.SelectedValue.ToString())
                 };
 
-                masServices.AsignarHorario(horario);
+                masServices.AsignarHorario(conductor);
                 MessageBox.Show("Horario asignado");
-                txtPKHorario.Clear();
+                txtPKConductor.Clear();
                 CbConductor.Text = "";
                 CbHorario.Text = "";
             }
             else
             {
-                int horarioId = Convert.ToInt32(txtPKHorario.Text);
+                int horarioId = Convert.ToInt32(txtPKConductor.Text);
 
-                Horario horario = new Horario()
+                Conductor conductor = new Conductor()
                 {
-                    PKHorario = horarioId,
+                    PKConductor = horarioId,
                     Horarios = CbHorario.Text,
-                    Conductores = CbConductor.Text,
-                    FKConductor = int.Parse(CbConductor.SelectedValue.ToString())
+                    Estatus = "",
                 };
                 MessageBox.Show("Horario actualizado");
-                masServices.Update(horario);
-                txtPKHorario.Clear();
+                masServices.Update(conductor);
+                txtPKConductor.Clear();
                 CbConductor.Text = "";
                 CbHorario.Text = "";
                 GetHorarioTable();
@@ -78,20 +76,20 @@ namespace Aereopuerto2.VistaSistema
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
-            Horario horario = new Horario();
-            horario = (sender as FrameworkElement).DataContext as Horario;
-            txtPKHorario.Text = horario.PKHorario.ToString();
+            Conductor horario = new Conductor();
+            horario = (sender as FrameworkElement).DataContext as Conductor;
+            txtPKConductor.Text = horario.PKConductor.ToString();
             CbHorario.Text = horario.Horarios.ToString();
-            CbConductor.Text = horario.Conductores.ToString();
+            CbConductor.Text = horario.PKConductor.ToString();
         }
         public void DeleteItem(object sender, RoutedEventArgs e)
         {
-            int horarioId = Convert.ToInt32(txtPKHorario.Text);
-            Horario horario = new Horario();
-            horario.PKHorario = horarioId;
+            int horarioId = Convert.ToInt32(txtPKConductor.Text);
+            Conductor horario = new Conductor();
+            horario.PKConductor = horarioId;
             masServices.DeleteHorario(horarioId);
             MessageBox.Show("Horario eliminado");
-            txtPKHorario.Clear();
+            txtPKConductor.Clear();
             CbConductor.Text = "";
             CbHorario.Text = "";
             GetHorarioTable();

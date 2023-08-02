@@ -17,4 +17,13 @@ namespace Aereopuerto2.Entities
         public string Horarios { get;set;}
         public string? Estatus { get;set;}
     }
+    /*
+     public class HorarioConductor
+    {
+    public int PKConductor { get; set; }
+    public string ConductorNombre { get; set; }
+    public string Horarios { get; set; }
+    public string Estatus { get; set; }
+}
+     */
 }

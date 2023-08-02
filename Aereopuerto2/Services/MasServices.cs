@@ -13,7 +13,7 @@ namespace Aereopuerto2.Services
 {
     public class MasServices
     {
-        public void AsignarHorario(Horario request)
+        public void AsignarHorario(Conductor request)
         {
             try
             {
@@ -22,13 +22,12 @@ namespace Aereopuerto2.Services
                     //Los corchetes son como abrir y cerrar la base de datos
                     using (var _context = new ApplicationDbContext())
                     {
-                        Horario res = new Horario();
-                        res.Conductores = request.Conductores;
+                        Conductor res = new Conductor();
                         res.Horarios = request.Horarios;
                         res.Estatus = request.Estatus;
-                        res.FKConductor = request.FKConductor;
+                        //res.FKConductor = request.FKConductor;
 
-                        _context.Horarios.Add(res);
+                        _context.Conductor.Add(res);
                         _context.SaveChanges();
                     }
                 }
@@ -39,26 +38,23 @@ namespace Aereopuerto2.Services
             }
 
         }
-        public void Update(Horario request)
+        public void Update(Conductor request)
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    Horario update = _context.Horarios.Find(request.PKHorario);
+                    Conductor update = _context.Conductor.Find(request.PKConductor);
 
                     update.Horarios = request.Horarios;
-                    update.Conductores = request.Conductores;
-                    update.PKHorario = request.PKHorario;
                     update.Estatus = request.Estatus;
 
-                    _context.Horarios.Update(update);
+                    _context.Conductor.Update(update);
                     _context.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception(" Error " + ex.Message);
             }
         }
@@ -70,14 +66,18 @@ namespace Aereopuerto2.Services
                 {
                     List<Conductor> conductores = _context.Conductor
                         .Include(x => x.Empleados)
-                        //.Where(e => e.Empleados.Puesto == "Conductor")
+                        .Include(x => x.Empleados.Nombre)
+
+                        /*.Select (conductor => Empleado
+                        {
+                            
+                        })*/
                         .ToList();
                     return conductores;
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Error " + ex.Message);
             }
         }

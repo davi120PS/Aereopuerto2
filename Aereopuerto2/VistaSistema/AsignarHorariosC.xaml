@@ -42,7 +42,7 @@
         <Label Content="Asignar Conductor" HorizontalAlignment="Left" Margin="113,178,0,0" VerticalAlignment="Top"/>
         <Label Content="Asignar Horario" HorizontalAlignment="Left" Margin="113,243,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BtnAsignar" Content="Asignar horario" HorizontalAlignment="Left" Margin="108,321,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" FontSize="14" Height="32" Width="130" Click="BtnAsignar_Click"/>
-        <TextBox x:Name="txtPKHorario" HorizontalAlignment="Left" Margin="113,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="txtPKConductor" HorizontalAlignment="Left" Margin="113,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="113,34,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="26" Width="89" Click="BtnBack_Click"/>
 
     </Grid>

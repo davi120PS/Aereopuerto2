@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230801165941_Aereopuerto23AM")]
+    [Migration("20230802174934_Aereopuerto23AM")]
     partial class Aereopuerto23AM
     {
         /// <inheritdoc />
@@ -127,6 +127,10 @@ namespace Aereopuerto2.Migrations
 
                     b.Property<int>("Calificaciones")
                         .HasColumnType("int");
+
+                    b.Property<string>("Estatus")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("FKEmpleado")
                         .HasColumnType("int");
@@ -250,10 +254,26 @@ namespace Aereopuerto2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Estatus")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("FKCliente")
+                        .HasColumnType("int");
+
                     b.Property<int?>("FKEmpleado")
                         .HasColumnType("int");
 
+                    b.Property<string>("HoraConductor")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HoraHotel")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("PKReservas");
+
+                    b.HasIndex("FKCliente");
 
                     b.HasIndex("FKEmpleado");
 
@@ -315,9 +335,15 @@ namespace Aereopuerto2.Migrations
 
             modelBuilder.Entity("Aereopuerto2.Entities.Reserva", b =>
                 {
+                    b.HasOne("Aereopuerto2.Entities.Cliente", "Clientes")
+                        .WithMany()
+                        .HasForeignKey("FKCliente");
+
                     b.HasOne("Aereopuerto2.Entities.Empleado", "Empleados")
                         .WithMany()
                         .HasForeignKey("FKEmpleado");
+
+                    b.Navigation("Clientes");
 
                     b.Navigation("Empleados");
                 });
