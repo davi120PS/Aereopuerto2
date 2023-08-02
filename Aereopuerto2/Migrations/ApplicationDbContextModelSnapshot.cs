@@ -25,6 +25,9 @@ namespace Aereopuerto2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("ConductorPKEmpleado")
+                        .HasColumnType("int");
+
                     b.Property<int?>("FKCliente")
                         .HasColumnType("int");
 
@@ -37,9 +40,9 @@ namespace Aereopuerto2.Migrations
 
                     b.HasKey("PKChat");
 
-                    b.HasIndex("FKCliente");
+                    b.HasIndex("ConductorPKEmpleado");
 
-                    b.HasIndex("FKConductor");
+                    b.HasIndex("FKCliente");
 
                     b.ToTable("Chat");
                 });
@@ -103,10 +106,6 @@ namespace Aereopuerto2.Migrations
                     b.Property<DateTime>("FechaContratacion")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Horarios")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<int>("Licencia")
                         .HasColumnType("int");
 
@@ -134,6 +133,12 @@ namespace Aereopuerto2.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Estatus")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Horarios")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Matricula")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -152,33 +157,6 @@ namespace Aereopuerto2.Migrations
                     b.HasKey("PKEmpleado");
 
                     b.ToTable("Empleado");
-                });
-
-            modelBuilder.Entity("Aereopuerto2.Entities.Horario", b =>
-                {
-                    b.Property<int>("PKHorario")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Conductores")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Estatus")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("FKConductor")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Horarios")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("PKHorario");
-
-                    b.HasIndex("FKConductor");
-
-                    b.ToTable("Horarios");
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Reserva", b =>
@@ -219,13 +197,15 @@ namespace Aereopuerto2.Migrations
 
             modelBuilder.Entity("Aereopuerto2.Entities.Chat", b =>
                 {
+                    b.HasOne("Aereopuerto2.Entities.Empleado", "Conductor")
+                        .WithMany()
+                        .HasForeignKey("ConductorPKEmpleado")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Aereopuerto2.Entities.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("FKCliente");
-
-                    b.HasOne("Aereopuerto2.Entities.Conductor", "Conductor")
-                        .WithMany()
-                        .HasForeignKey("FKConductor");
 
                     b.Navigation("Cliente");
 
@@ -239,15 +219,6 @@ namespace Aereopuerto2.Migrations
                         .HasForeignKey("FKEmpleado");
 
                     b.Navigation("Empleados");
-                });
-
-            modelBuilder.Entity("Aereopuerto2.Entities.Horario", b =>
-                {
-                    b.HasOne("Aereopuerto2.Entities.Conductor", "Conductor")
-                        .WithMany()
-                        .HasForeignKey("FKConductor");
-
-                    b.Navigation("Conductor");
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Reserva", b =>

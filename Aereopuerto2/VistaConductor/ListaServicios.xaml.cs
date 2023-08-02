@@ -52,12 +52,12 @@ namespace Aereopuerto2.VistaConductor
             horarios.Show();
             Close();
         }
-
-        private void BtnChat_Click(object sender, RoutedEventArgs e)
+        private void Chat_Click(object sender, RoutedEventArgs e)
         {
             VistaChat chat = new VistaChat();
             chat.Show();
             Close();
         }
+
     }
 }

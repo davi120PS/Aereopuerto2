@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="235,136,92,50">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Conductor" Binding="{Binding Conductores}" />
+                <DataGridTextColumn Header="Conductor" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
                 <DataGridTextColumn Header="Estatus/Traslado" Binding="{Binding Estatus}" />
 
@@ -35,7 +35,7 @@
         </ComboBox>
         <Label Content="Estatus" HorizontalAlignment="Left" Margin="122,185,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BtnEstatus" Content="Enviar Estatus" HorizontalAlignment="Left" Margin="92,263,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Mono" Height="24" Width="108" Click="BtnEstatus_Click"/>
-        <TextBox x:Name="txtPKHorario" HorizontalAlignment="Left" Margin="86,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="True"/>
+        <TextBox x:Name="txtPKEmpleado" HorizontalAlignment="Left" Margin="86,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="True"/>
         <Button x:Name="BtnBack" Content="Regresar" HorizontalAlignment="Left" Margin="122,29,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" Foreground="White" Background="#FF3A62D7" Click="BtnBack_Click"/>
 
     </Grid>

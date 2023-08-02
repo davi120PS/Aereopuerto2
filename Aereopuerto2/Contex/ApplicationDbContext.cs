@@ -20,7 +20,6 @@ namespace Aereopuerto2.Contex
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Conductor> Conductor { get; set; }
         public DbSet<Chat> Chat { get; set; }
-        public DbSet<Horario> Horarios { get; set; }
         public DbSet<Reserva> Reserva { get; set; }
         public DbSet<Sistema> Sistema { get; set; }
     }

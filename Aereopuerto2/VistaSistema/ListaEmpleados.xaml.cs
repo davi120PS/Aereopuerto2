@@ -41,6 +41,8 @@ namespace Aereopuerto2.VistaSistema
                     empleado.Contraseña = txtContraseña.Text;
                     empleado.Correo = txtCorreo.Text;
                     empleado.Sexo = CbxSexo.Text;
+                    empleado.Estatus = "";
+                    empleado.Horarios = "";
                     services.Add(empleado);
                     MessageBox.Show("Empleado registrado");
                     GetEmpleadosTable();
