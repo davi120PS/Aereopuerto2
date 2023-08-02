@@ -62,14 +62,17 @@ namespace Aereopuerto2.Services
                 throw new Exception(" Error " + ex.Message);
             }
         }
-        public List<Horario> GetHorarios()
+        public List<Conductor> GetHorarios()
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Horario> horarios = _context.Horarios.Include(x => x.Conductor).ToList();
-                    return horarios;
+                    List<Conductor> conductores = _context.Conductor
+                        .Include(x => x.Empleados)
+                        //.Where(e => e.Empleados.Puesto == "Conductor")
+                        .ToList();
+                    return conductores;
                 }
             }
             catch (Exception ex)

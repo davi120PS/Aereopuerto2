@@ -18,7 +18,6 @@ namespace Aereopuerto2.Entities
         public string Correo { get; set; }
         public string TipoServicio { get; set; }
         public int Pasajeros { get; set; }
-        //public int NoReserva { get; set; }
         public string Solicitud { get; set; }
     }
 }

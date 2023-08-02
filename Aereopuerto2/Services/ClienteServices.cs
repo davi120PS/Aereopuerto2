@@ -94,10 +94,6 @@ namespace Aereopuerto2.Services
                         _context.Remove(cliente);
                         _context.SaveChanges();
                     }
-                    else
-                    {
-                        MessageBox.Show("Reserva cancelada");
-                    }
                 }
             }
             catch (Exception ex)

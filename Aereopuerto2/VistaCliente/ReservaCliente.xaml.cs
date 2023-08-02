@@ -57,8 +57,6 @@ namespace Aereopuerto2.VistaCliente
             }
             else
                 MessageBox.Show("Los datos no han sido agregados correctamente");
-            
-
 
             MainWindow interfaz = new MainWindow();
             interfaz.Show();

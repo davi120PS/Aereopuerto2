@@ -98,5 +98,10 @@ namespace Aereopuerto2.VistaGerenteR
             CbNombreConductor.SelectedItem = null;
             txtEstatus.Clear();
         }
+
+        private void BtnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

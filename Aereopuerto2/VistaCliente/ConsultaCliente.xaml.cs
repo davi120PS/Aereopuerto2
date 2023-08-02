@@ -28,31 +28,36 @@ namespace Aereopuerto2.VistaCliente
         ClienteServices services = new ClienteServices();
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            int NoReserva = int.Parse(txtNoReserva.Text);
-            Cliente empleado = services.Read(NoReserva);
-            if (empleado != null)
+            if(txtNoReserva.Text != "")
             {
-                txtNombre.Text = empleado.Nombre;
-                txtApellido.Text = empleado.Apellido;
-                txtEdad.Text = empleado.Edad.ToString();
-                txtINE.Text = empleado.INE;
-                txtTelefono.Text = empleado.Telefono.ToString();
-                txtCorreo.Text = empleado.Correo;
-                cbxServicio.Text = empleado.TipoServicio;
-                txtPasajeros.Text = empleado.Pasajeros.ToString();
+                int NoReserva = int.Parse(txtNoReserva.Text);
+                Cliente empleado = services.Read(NoReserva);
+                if (empleado != null)
+                {
+                    txtNombre.Text = empleado.Nombre;
+                    txtApellido.Text = empleado.Apellido;
+                    txtEdad.Text = empleado.Edad.ToString();
+                    txtINE.Text = empleado.INE;
+                    txtTelefono.Text = empleado.Telefono.ToString();
+                    txtCorreo.Text = empleado.Correo;
+                    cbxServicio.Text = empleado.TipoServicio;
+                    txtPasajeros.Text = empleado.Pasajeros.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Reserva no encontrada");
+                    txtNombre.Text = string.Empty;
+                    txtApellido.Text = string.Empty;
+                    txtEdad.Text = string.Empty;
+                    txtINE.Text = string.Empty;
+                    txtTelefono.Text = string.Empty;
+                    txtCorreo.Text = string.Empty;
+                    cbxServicio.Text = string.Empty;
+                    txtPasajeros.Text = string.Empty;
+                }
             }
             else
-            {
-                MessageBox.Show("Reserva no encontrada");
-                txtNombre.Text = string.Empty;
-                txtApellido.Text = string.Empty;
-                txtEdad.Text = string.Empty;
-                txtINE.Text = string.Empty;
-                txtTelefono.Text = string.Empty;
-                txtCorreo.Text = string.Empty;
-                cbxServicio.Text = string.Empty;
-                txtPasajeros.Text = string.Empty;
-            }
+                MessageBox.Show("Ingresa el No. de Reserva");
         }
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {

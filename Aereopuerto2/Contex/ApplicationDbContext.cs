@@ -23,5 +23,68 @@ namespace Aereopuerto2.Contex
         public DbSet<Horario> Horarios { get; set; }
         public DbSet<Reserva> Reserva { get; set; }
         public DbSet<Sistema> Sistema { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Empleado>().HasData(
+                new Empleado
+                {
+                    PKEmpleado = 1,
+                    Nombre = "David",
+                    Puesto = "Sistema",
+                    Matricula = "davi",
+                    Contraseña = "123",
+                    Correo = "davi@",
+                    Sexo = "Hombre"
+                },
+                new Empleado
+                {
+                    PKEmpleado = 2,
+                    Nombre = "Diego",
+                    Puesto = "Reservas",
+                    Matricula = "dieg",
+                    Contraseña = "123",
+                    Correo = "dieg@",
+                    Sexo = "Hombre"
+                },
+                new Empleado
+                {
+                    PKEmpleado = 3,
+                    Nombre = "Jorge",
+                    Puesto = "Conductor",
+                    Matricula = "joge",
+                    Contraseña = "123",
+                    Correo = "joge@",
+                    Sexo = "Hombre"
+                }
+            );
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente
+                {
+                    PKCliente = 1,
+                    Nombre = "Paco",
+                    Apellido = "Rabanne",
+                    Edad = 36,
+                    INE = "PACCB24",
+                    Telefono = 23412,
+                    Correo = "paco@",
+                    TipoServicio = "VIP",
+                    Pasajeros = 1,
+                    Solicitud = "Aceptable"
+                },
+                new Cliente
+                {
+                    PKCliente = 2,
+                    Nombre = "Carolina",
+                    Apellido = "Herrera",
+                    Edad = 23,
+                    INE = "CAHR3G",
+                    Telefono = 87868,
+                    Correo = "caro@",
+                    TipoServicio = "Premium",
+                    Pasajeros = 2,
+                    Solicitud = "Aceptable"
+                }
+            );
+        }
     }
 }

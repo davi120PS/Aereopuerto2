@@ -27,13 +27,13 @@ namespace Aereopuerto2.VistaSistema
         {
             ListaEmpleados lista = new ListaEmpleados();
             lista.Show();
-            Close();
+            Hide();
         }
         private void BtnConductores_Click(object sender, RoutedEventArgs e)
         {
             AsignarHorariosC asignarhorarios = new AsignarHorariosC();
             asignarhorarios.Show();
-            Close();
+            Hide();
         }
         private void BtnMantenimiento_Click(object sender, RoutedEventArgs e)
         {
@@ -49,7 +49,7 @@ namespace Aereopuerto2.VistaSistema
         {
             Login login = new Login();
             login.Show();
-            Close();
+            Hide();
         }
     }
 }

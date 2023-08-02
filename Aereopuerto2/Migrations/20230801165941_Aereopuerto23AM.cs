@@ -4,10 +4,12 @@ using MySql.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Aereopuerto2.Migrations
 {
     /// <inheritdoc />
-    public partial class example : Migration
+    public partial class Aereopuerto23AM : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -166,6 +168,25 @@ namespace Aereopuerto2.Migrations
                         principalColumn: "PKConductor");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Cliente",
+                columns: new[] { "PKCliente", "Apellido", "Correo", "Edad", "INE", "Nombre", "Pasajeros", "Solicitud", "Telefono", "TipoServicio" },
+                values: new object[,]
+                {
+                    { 1, "Rabanne", "paco@", 36, "PACCB24", "Paco", 1, "Aceptable", 23412, "VIP" },
+                    { 2, "Herrera", "caro@", 23, "CAHR3G", "Carolina", 2, "Aceptable", 87868, "Premium" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Empleado",
+                columns: new[] { "PKEmpleado", "Contraseña", "Correo", "Matricula", "Nombre", "Puesto", "Sexo" },
+                values: new object[,]
+                {
+                    { 1, "123", "davi@", "davi", "David", "Sistema", "Hombre" },
+                    { 2, "123", "dieg@", "dieg", "Diego", "Reservas", "Hombre" },
+                    { 3, "123", "joge@", "joge", "Jorge", "Conductor", "Hombre" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Chat_FKCliente",

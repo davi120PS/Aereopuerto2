@@ -86,6 +86,34 @@ namespace Aereopuerto2.Migrations
                     b.HasKey("PKCliente");
 
                     b.ToTable("Cliente");
+
+                    b.HasData(
+                        new
+                        {
+                            PKCliente = 1,
+                            Apellido = "Rabanne",
+                            Correo = "paco@",
+                            Edad = 36,
+                            INE = "PACCB24",
+                            Nombre = "Paco",
+                            Pasajeros = 1,
+                            Solicitud = "Aceptable",
+                            Telefono = 23412,
+                            TipoServicio = "VIP"
+                        },
+                        new
+                        {
+                            PKCliente = 2,
+                            Apellido = "Herrera",
+                            Correo = "caro@",
+                            Edad = 23,
+                            INE = "CAHR3G",
+                            Nombre = "Carolina",
+                            Pasajeros = 2,
+                            Solicitud = "Aceptable",
+                            Telefono = 87868,
+                            TipoServicio = "Premium"
+                        });
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Conductor", b =>
@@ -152,6 +180,38 @@ namespace Aereopuerto2.Migrations
                     b.HasKey("PKEmpleado");
 
                     b.ToTable("Empleado");
+
+                    b.HasData(
+                        new
+                        {
+                            PKEmpleado = 1,
+                            Contraseña = "123",
+                            Correo = "davi@",
+                            Matricula = "davi",
+                            Nombre = "David",
+                            Puesto = "Sistema",
+                            Sexo = "Hombre"
+                        },
+                        new
+                        {
+                            PKEmpleado = 2,
+                            Contraseña = "123",
+                            Correo = "dieg@",
+                            Matricula = "dieg",
+                            Nombre = "Diego",
+                            Puesto = "Reservas",
+                            Sexo = "Hombre"
+                        },
+                        new
+                        {
+                            PKEmpleado = 3,
+                            Contraseña = "123",
+                            Correo = "joge@",
+                            Matricula = "joge",
+                            Nombre = "Jorge",
+                            Puesto = "Conductor",
+                            Sexo = "Hombre"
+                        });
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Horario", b =>
