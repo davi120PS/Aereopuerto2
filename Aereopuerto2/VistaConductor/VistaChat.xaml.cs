@@ -24,9 +24,11 @@ namespace Aereopuerto2.VistaConductor
         public VistaChat()
         {
             InitializeComponent();
+            GetCbCliente();
             GetChatTable();
         }
         ConductorSevices conductorSevices = new ConductorSevices();
+        EmpleadoServices services = new EmpleadoServices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
             if (txtPKChat.Text == "")
@@ -34,6 +36,7 @@ namespace Aereopuerto2.VistaConductor
                 Chat chat = new Chat()
                 {
                     Mensaje = txtMensaje.Text,
+                    FKCliente = int.Parse(CbCliente.Text),
                 };
 
                 conductorSevices.AddChat(chat);
@@ -59,6 +62,12 @@ namespace Aereopuerto2.VistaConductor
         public void GetChatTable()
         {
             ChatTable.ItemsSource = conductorSevices.GetChat();
+        }
+        public void GetCbCliente()
+        {
+            CbCliente.ItemsSource = services.GetClientes();
+            CbCliente.DisplayMemberPath = "Nombre";
+            CbCliente.SelectedValuePath = "PKCliente";
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
