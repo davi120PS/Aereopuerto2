@@ -53,7 +53,9 @@ namespace Aereopuerto2.Contex
                     Matricula = "joge",
                     Contraseña = "123",
                     Correo = "joge@",
-                    Sexo = "Hombre"
+                    Sexo = "Hombre",
+                    Estatus = "",
+                    Horarios = "",
                 }
             );
             modelBuilder.Entity<Cliente>().HasData(

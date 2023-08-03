@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="VistaChat" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="ChatTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="158,132,130,116">
+        <DataGrid x:Name="ChatTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="138,132,150,116">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PKChat}" />
                 <DataGridTextColumn Header="Mensaje" Binding="{Binding Mensaje}" />
-                <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nombre}" />
+                <DataGridTextColumn Header="Cliente" Binding="{Binding FKCliente}" />
                 <DataGridTextColumn Header="Conductor" Binding="{Binding Conductor.Nombre}" />
 
                 <DataGridTemplateColumn Header="Editar">
@@ -34,10 +34,12 @@
         <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="80" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="629,16,0,0" VerticalAlignment="Top" Width="147" Source="/Img/Logo.png" Stretch="Fill"/>
         <Label Content="Comunicacion con clientes" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF3A62D7" FontFamily="Cascadia Mono"/>
-        <TextBox x:Name="txtPKChat" HorizontalAlignment="Left" Margin="692,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
-        <TextBox x:Name="txtMensaje" HorizontalAlignment="Left" Margin="158,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423" FontFamily="Cascadia Code"/>
-        <Button x:Name="BtnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="581,323,0,0" VerticalAlignment="Top" Width="89" Height="16" FontFamily="Cascadia Code" Click="BtnEnviar_Click"/>
+        <TextBox x:Name="txtPKChat" HorizontalAlignment="Left" Margin="750,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+        <TextBox x:Name="txtMensaje" HorizontalAlignment="Left" Margin="138,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="411" FontFamily="Cascadia Code"/>
+        <Button x:Name="BtnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="561,323,0,0" VerticalAlignment="Top" Width="89" Height="16" FontFamily="Cascadia Code" Click="BtnEnviar_Click"/>
         <Button x:Name="btnBack" Content="Regresar" HorizontalAlignment="Left" Margin="107,16,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="30" Width="61" Click="btnBack_Click"/>
+        <ComboBox x:Name="CbCliente" HorizontalAlignment="Left" Margin="670,0,0,0" VerticalAlignment="Center" Width="120"/>
+        <Label Content="Enviar a" HorizontalAlignment="Left" Margin="697,177,0,0" VerticalAlignment="Top" FontFamily="Cascadia Code"/>
 
     </Grid>
 </Window>
