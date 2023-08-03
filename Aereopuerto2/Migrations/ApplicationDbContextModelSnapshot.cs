@@ -137,6 +137,9 @@ namespace Aereopuerto2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int?>("Conexion")
+                        .HasColumnType("int");
+
                     b.Property<string>("Contraseña")
                         .IsRequired()
                         .HasColumnType("longtext");

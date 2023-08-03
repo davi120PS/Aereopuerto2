@@ -92,8 +92,7 @@ namespace Aereopuerto2.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Chat> chat = _context.Chat.Include(x => x.Empleado)
-                        .Where(e => e.Empleado.Puesto == "Conductor").ToList();
+                    List<Chat> chat = _context.Chat.Include(x=>x.Cliente).Include(x => x.Empleado).ToList();
                     return chat;
                 }
             }

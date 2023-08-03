@@ -42,6 +42,7 @@ namespace Aereopuerto2.Services
                         res.Sexo = request.Sexo;
                         res.Estatus = request.Estatus;
                         res.Horarios = request.Horarios;
+                        res.Conexion = request.Conexion;
                         _context.Empleado.Add(res);
                         _context.SaveChanges();
                     }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230803133710_ejemplo")]
+    [Migration("20230803143006_ejemplo")]
     partial class ejemplo
     {
         /// <inheritdoc />
@@ -138,6 +138,9 @@ namespace Aereopuerto2.Migrations
                 {
                     b.Property<int>("PKEmpleado")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Conexion")
                         .HasColumnType("int");
 
                     b.Property<string>("Contraseña")

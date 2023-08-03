@@ -18,5 +18,6 @@ namespace Aereopuerto2.Entities
         public string Sexo { get; set; }
         public string? Horarios { get; set; }
         public string? Estatus { get; set; }
+        public int? Conexion { get; set; }
     }
 }

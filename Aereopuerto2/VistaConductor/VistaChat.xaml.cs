@@ -86,6 +86,7 @@ namespace Aereopuerto2.VistaConductor
             txtPKChat.Clear();
             txtMensaje.Clear();
             GetChatTable();
+
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

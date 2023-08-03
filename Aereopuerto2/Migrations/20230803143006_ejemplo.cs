@@ -30,7 +30,8 @@ namespace Aereopuerto2.Migrations
                     Correo = table.Column<string>(type: "longtext", nullable: false),
                     Sexo = table.Column<string>(type: "longtext", nullable: false),
                     Horarios = table.Column<string>(type: "longtext", nullable: true),
-                    Estatus = table.Column<string>(type: "longtext", nullable: true)
+                    Estatus = table.Column<string>(type: "longtext", nullable: true),
+                    Conexion = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -168,12 +169,12 @@ namespace Aereopuerto2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Empleado",
-                columns: new[] { "PKEmpleado", "Contraseña", "Correo", "Estatus", "Horarios", "Matricula", "Nombre", "Puesto", "Sexo" },
+                columns: new[] { "PKEmpleado", "Conexion", "Contraseña", "Correo", "Estatus", "Horarios", "Matricula", "Nombre", "Puesto", "Sexo" },
                 values: new object[,]
                 {
-                    { 1, "123", "davi@", null, null, "davi", "David", "Sistema", "Hombre" },
-                    { 2, "123", "dieg@", null, null, "dieg", "Diego", "Reservas", "Hombre" },
-                    { 3, "123", "joge@", "", "", "joge", "Jorge", "Conductor", "Hombre" }
+                    { 1, null, "123", "davi@", null, null, "davi", "David", "Sistema", "Hombre" },
+                    { 2, null, "123", "dieg@", null, null, "dieg", "Diego", "Reservas", "Hombre" },
+                    { 3, null, "123", "joge@", "", "", "joge", "Jorge", "Conductor", "Hombre" }
                 });
 
             migrationBuilder.CreateIndex(

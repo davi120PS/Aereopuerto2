@@ -54,6 +54,20 @@ namespace Aereopuerto2
                             Close();
                             break;
                         case "Conductor":
+                            try
+                            {
+                                using (var _context = new ApplicationDbContext())
+                                {
+                                    Empleado empleado = new Empleado()
+                                    {
+                                        Conexion = 1
+                                    };
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new Exception ("Error" + ex.Message);
+                            }
                             ListaServicios listaServicios = new ListaServicios();
                             listaServicios.Show();
                             Close();
