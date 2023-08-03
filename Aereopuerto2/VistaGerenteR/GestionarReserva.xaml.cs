@@ -1,4 +1,5 @@
-﻿using Aereopuerto2.Entities;
+﻿using Aereopuerto2.Contex;
+using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace Aereopuerto2.VistaGerenteR
         }
         EmpleadoServices services = new EmpleadoServices();
         ClienteServices services2 = new ClienteServices();
+        GerenteRServices services3 = new GerenteRServices();
 
         public void GetReserva(object sender, RoutedEventArgs e)
         {
@@ -101,7 +103,26 @@ namespace Aereopuerto2.VistaGerenteR
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-
+            int userId = Convert.ToInt32(txtNoReserva.Text);
+            Cliente cliente = new Cliente()
+            {
+                PKCliente = int.Parse(txtNoReserva.Text),
+                Solicitud = "Listo",
+                FKConductor = int.Parse(CbNombreConductor.SelectedValuePath.ToString()),
+                HoraHotel = CbHoraHotel.Text,
+                HoraConductor = CbHoraConductor.Text,
+            };
+            services3.UpdateReserva(cliente);
+            MessageBox.Show("Reserva Confirmada");
+        }
+        public Conductor GetConductorById(int ventaId)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                // Suponiendo que DbSet "Ventas" representa la tabla de ventas en la base de datos.
+                var venta = context.Conductor.Find(ventaId);
+                return venta;
+            }
         }
     }
 }

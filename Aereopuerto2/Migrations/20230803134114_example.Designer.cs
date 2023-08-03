@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230803122531_example")]
+    [Migration("20230803134114_example")]
     partial class example
     {
         /// <inheritdoc />
@@ -67,6 +67,15 @@ namespace Aereopuerto2.Migrations
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
+                    b.Property<int?>("FKConductor")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HoraConductor")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HoraHotel")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("INE")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -91,6 +100,8 @@ namespace Aereopuerto2.Migrations
 
                     b.HasKey("PKCliente");
 
+                    b.HasIndex("FKConductor");
+
                     b.ToTable("Cliente");
 
                     b.HasData(
@@ -100,6 +111,8 @@ namespace Aereopuerto2.Migrations
                             Apellido = "Rabanne",
                             Correo = "paco@",
                             Edad = 36,
+                            HoraConductor = "",
+                            HoraHotel = "",
                             INE = "PACCB24",
                             Nombre = "Paco",
                             Pasajeros = 1,
@@ -113,6 +126,8 @@ namespace Aereopuerto2.Migrations
                             Apellido = "Herrera",
                             Correo = "caro@",
                             Edad = 23,
+                            HoraConductor = "",
+                            HoraHotel = "",
                             INE = "CAHR3G",
                             Nombre = "Carolina",
                             Pasajeros = 2,
@@ -219,6 +234,8 @@ namespace Aereopuerto2.Migrations
                             PKEmpleado = 3,
                             Contraseña = "123",
                             Correo = "joge@",
+                            Estatus = "",
+                            Horarios = "",
                             Matricula = "joge",
                             Nombre = "Jorge",
                             Puesto = "Conductor",
@@ -293,6 +310,15 @@ namespace Aereopuerto2.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("Conductor");
+                });
+
+            modelBuilder.Entity("Aereopuerto2.Entities.Cliente", b =>
+                {
+                    b.HasOne("Aereopuerto2.Entities.Empleado", "Empleado")
+                        .WithMany()
+                        .HasForeignKey("FKConductor");
+
+                    b.Navigation("Empleado");
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Conductor", b =>

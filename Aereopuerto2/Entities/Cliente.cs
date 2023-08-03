@@ -12,7 +12,7 @@ namespace Aereopuerto2.Entities
     {
         [Key] public int PKCliente { get; set; }
         [ForeignKey("Empleado")] public int? FKConductor { get; set; }
-        public Empleado Conductor { get; set; }
+        public Empleado Empleado { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int Edad { get; set; }
@@ -22,7 +22,7 @@ namespace Aereopuerto2.Entities
         public string TipoServicio { get; set; }
         public int Pasajeros { get; set; }
         public string Solicitud { get; set; }
-        public string HoraConductor { get; set; }
-        public string HoraHotel { get; set; }
+        public string? HoraConductor { get; set; }
+        public string? HoraHotel { get; set; }
     }
 }

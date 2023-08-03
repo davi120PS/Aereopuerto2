@@ -18,28 +18,6 @@ namespace Aereopuerto2.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Cliente",
-                columns: table => new
-                {
-                    PKCliente = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Nombre = table.Column<string>(type: "longtext", nullable: false),
-                    Apellido = table.Column<string>(type: "longtext", nullable: false),
-                    Edad = table.Column<int>(type: "int", nullable: false),
-                    INE = table.Column<string>(type: "longtext", nullable: false),
-                    Telefono = table.Column<int>(type: "int", nullable: false),
-                    Correo = table.Column<string>(type: "longtext", nullable: false),
-                    TipoServicio = table.Column<string>(type: "longtext", nullable: false),
-                    Pasajeros = table.Column<int>(type: "int", nullable: false),
-                    Solicitud = table.Column<string>(type: "longtext", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cliente", x => x.PKCliente);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Empleado",
                 columns: table => new
                 {
@@ -57,6 +35,80 @@ namespace Aereopuerto2.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Empleado", x => x.PKEmpleado);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Cliente",
+                columns: table => new
+                {
+                    PKCliente = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    FKConductor = table.Column<int>(type: "int", nullable: true),
+                    Nombre = table.Column<string>(type: "longtext", nullable: false),
+                    Apellido = table.Column<string>(type: "longtext", nullable: false),
+                    Edad = table.Column<int>(type: "int", nullable: false),
+                    INE = table.Column<string>(type: "longtext", nullable: false),
+                    Telefono = table.Column<int>(type: "int", nullable: false),
+                    Correo = table.Column<string>(type: "longtext", nullable: false),
+                    TipoServicio = table.Column<string>(type: "longtext", nullable: false),
+                    Pasajeros = table.Column<int>(type: "int", nullable: false),
+                    Solicitud = table.Column<string>(type: "longtext", nullable: false),
+                    HoraConductor = table.Column<string>(type: "longtext", nullable: true),
+                    HoraHotel = table.Column<string>(type: "longtext", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cliente", x => x.PKCliente);
+                    table.ForeignKey(
+                        name: "FK_Cliente_Empleado_FKConductor",
+                        column: x => x.FKConductor,
+                        principalTable: "Empleado",
+                        principalColumn: "PKEmpleado");
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Conductor",
+                columns: table => new
+                {
+                    PKConductor = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    FKEmpleado = table.Column<int>(type: "int", nullable: true),
+                    Licencia = table.Column<int>(type: "int", nullable: false),
+                    FechaContratacion = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Estatus = table.Column<string>(type: "longtext", nullable: false),
+                    Calificaciones = table.Column<int>(type: "int", nullable: false),
+                    NotasAdicionales = table.Column<string>(type: "longtext", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Conductor", x => x.PKConductor);
+                    table.ForeignKey(
+                        name: "FK_Conductor_Empleado_FKEmpleado",
+                        column: x => x.FKEmpleado,
+                        principalTable: "Empleado",
+                        principalColumn: "PKEmpleado");
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Sistema",
+                columns: table => new
+                {
+                    PKSistemas = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Detalles = table.Column<string>(type: "longtext", nullable: false),
+                    FKEmpleado = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sistema", x => x.PKSistemas);
+                    table.ForeignKey(
+                        name: "FK_Sistema_Empleado_FKEmpleado",
+                        column: x => x.FKEmpleado,
+                        principalTable: "Empleado",
+                        principalColumn: "PKEmpleado");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -89,30 +141,6 @@ namespace Aereopuerto2.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Conductor",
-                columns: table => new
-                {
-                    PKConductor = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    FKEmpleado = table.Column<int>(type: "int", nullable: true),
-                    Licencia = table.Column<int>(type: "int", nullable: false),
-                    FechaContratacion = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Estatus = table.Column<string>(type: "longtext", nullable: false),
-                    Calificaciones = table.Column<int>(type: "int", nullable: false),
-                    NotasAdicionales = table.Column<string>(type: "longtext", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Conductor", x => x.PKConductor);
-                    table.ForeignKey(
-                        name: "FK_Conductor_Empleado_FKEmpleado",
-                        column: x => x.FKEmpleado,
-                        principalTable: "Empleado",
-                        principalColumn: "PKEmpleado");
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Reserva",
                 columns: table => new
                 {
@@ -140,33 +168,13 @@ namespace Aereopuerto2.Migrations
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "Sistema",
-                columns: table => new
-                {
-                    PKSistemas = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Detalles = table.Column<string>(type: "longtext", nullable: false),
-                    FKEmpleado = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sistema", x => x.PKSistemas);
-                    table.ForeignKey(
-                        name: "FK_Sistema_Empleado_FKEmpleado",
-                        column: x => x.FKEmpleado,
-                        principalTable: "Empleado",
-                        principalColumn: "PKEmpleado");
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
             migrationBuilder.InsertData(
                 table: "Cliente",
-                columns: new[] { "PKCliente", "Apellido", "Correo", "Edad", "INE", "Nombre", "Pasajeros", "Solicitud", "Telefono", "TipoServicio" },
+                columns: new[] { "PKCliente", "Apellido", "Correo", "Edad", "FKConductor", "HoraConductor", "HoraHotel", "INE", "Nombre", "Pasajeros", "Solicitud", "Telefono", "TipoServicio" },
                 values: new object[,]
                 {
-                    { 1, "Rabanne", "paco@", 36, "PACCB24", "Paco", 1, "Aceptable", 23412, "VIP" },
-                    { 2, "Herrera", "caro@", 23, "CAHR3G", "Carolina", 2, "Aceptable", 87868, "Premium" }
+                    { 1, "Rabanne", "paco@", 36, null, "", "", "PACCB24", "Paco", 1, "Aceptable", 23412, "VIP" },
+                    { 2, "Herrera", "caro@", 23, null, "", "", "CAHR3G", "Carolina", 2, "Aceptable", 87868, "Premium" }
                 });
 
             migrationBuilder.InsertData(
@@ -176,7 +184,7 @@ namespace Aereopuerto2.Migrations
                 {
                     { 1, "123", "davi@", null, null, "davi", "David", "Sistema", "Hombre" },
                     { 2, "123", "dieg@", null, null, "dieg", "Diego", "Reservas", "Hombre" },
-                    { 3, "123", "joge@", null, null, "joge", "Jorge", "Conductor", "Hombre" }
+                    { 3, "123", "joge@", "", "", "joge", "Jorge", "Conductor", "Hombre" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -188,6 +196,11 @@ namespace Aereopuerto2.Migrations
                 name: "IX_Chat_FKCliente",
                 table: "Chat",
                 column: "FKCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cliente_FKConductor",
+                table: "Cliente",
+                column: "FKConductor");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Conductor_FKEmpleado",
