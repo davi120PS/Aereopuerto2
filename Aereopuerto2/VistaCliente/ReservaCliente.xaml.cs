@@ -39,7 +39,9 @@ namespace Aereopuerto2.VistaCliente
                 Telefono = int.Parse(txtTelefono.Text),
                 Correo = txtCorreo.Text,
                 TipoServicio = cbxServicio.Text,
-                Pasajeros = int.Parse(txtPasajeros.Text)
+                Pasajeros = int.Parse(txtPasajeros.Text),
+                HoraHotel = "",
+                HoraConductor = ""
             };
             if (!string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtApellido.Text))
             {

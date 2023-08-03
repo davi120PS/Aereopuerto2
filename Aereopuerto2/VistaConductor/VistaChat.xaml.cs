@@ -36,7 +36,7 @@ namespace Aereopuerto2.VistaConductor
                 Chat chat = new Chat()
                 {
                     Mensaje = txtMensaje.Text,
-                    FKCliente = int.Parse(CbCliente.Text),
+                    FKCliente = int.Parse(CbCliente.SelectedValue.ToString())
                 };
 
                 conductorSevices.AddChat(chat);

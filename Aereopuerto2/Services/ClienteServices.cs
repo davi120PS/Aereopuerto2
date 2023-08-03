@@ -29,6 +29,7 @@ namespace Aereopuerto2.Services
                         Correo = request.Correo,
                         TipoServicio = request.TipoServicio,
                         Pasajeros = request.Pasajeros,
+                        FKEmpleado = request.FKEmpleado,
                         Solicitud = "Aceptable"
                     };
                     _context.Cliente.Add(empleado);

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230803122531_example")]
-    partial class example
+    [Migration("20230803133710_ejemplo")]
+    partial class ejemplo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,13 +28,10 @@ namespace Aereopuerto2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ConductorPKEmpleado")
-                        .HasColumnType("int");
-
                     b.Property<int?>("FKCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FKConductor")
+                    b.Property<int?>("FKEmpleado")
                         .HasColumnType("int");
 
                     b.Property<string>("Mensaje")
@@ -43,9 +40,9 @@ namespace Aereopuerto2.Migrations
 
                     b.HasKey("PKChat");
 
-                    b.HasIndex("ConductorPKEmpleado");
-
                     b.HasIndex("FKCliente");
+
+                    b.HasIndex("FKEmpleado");
 
                     b.ToTable("Chat");
                 });
@@ -66,6 +63,15 @@ namespace Aereopuerto2.Migrations
 
                     b.Property<int>("Edad")
                         .HasColumnType("int");
+
+                    b.Property<int?>("FKEmpleado")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HoraConductor")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HoraHotel")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("INE")
                         .IsRequired()
@@ -91,35 +97,9 @@ namespace Aereopuerto2.Migrations
 
                     b.HasKey("PKCliente");
 
-                    b.ToTable("Cliente");
+                    b.HasIndex("FKEmpleado");
 
-                    b.HasData(
-                        new
-                        {
-                            PKCliente = 1,
-                            Apellido = "Rabanne",
-                            Correo = "paco@",
-                            Edad = 36,
-                            INE = "PACCB24",
-                            Nombre = "Paco",
-                            Pasajeros = 1,
-                            Solicitud = "Aceptable",
-                            Telefono = 23412,
-                            TipoServicio = "VIP"
-                        },
-                        new
-                        {
-                            PKCliente = 2,
-                            Apellido = "Herrera",
-                            Correo = "caro@",
-                            Edad = 23,
-                            INE = "CAHR3G",
-                            Nombre = "Carolina",
-                            Pasajeros = 2,
-                            Solicitud = "Aceptable",
-                            Telefono = 87868,
-                            TipoServicio = "Premium"
-                        });
+                    b.ToTable("Cliente");
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Conductor", b =>
@@ -219,6 +199,8 @@ namespace Aereopuerto2.Migrations
                             PKEmpleado = 3,
                             Contraseña = "123",
                             Correo = "joge@",
+                            Estatus = "",
+                            Horarios = "",
                             Matricula = "joge",
                             Nombre = "Jorge",
                             Puesto = "Conductor",
@@ -280,19 +262,26 @@ namespace Aereopuerto2.Migrations
 
             modelBuilder.Entity("Aereopuerto2.Entities.Chat", b =>
                 {
-                    b.HasOne("Aereopuerto2.Entities.Empleado", "Conductor")
-                        .WithMany()
-                        .HasForeignKey("ConductorPKEmpleado")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Aereopuerto2.Entities.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("FKCliente");
 
+                    b.HasOne("Aereopuerto2.Entities.Empleado", "Empleado")
+                        .WithMany()
+                        .HasForeignKey("FKEmpleado");
+
                     b.Navigation("Cliente");
 
-                    b.Navigation("Conductor");
+                    b.Navigation("Empleado");
+                });
+
+            modelBuilder.Entity("Aereopuerto2.Entities.Cliente", b =>
+                {
+                    b.HasOne("Aereopuerto2.Entities.Empleado", "Empleado")
+                        .WithMany()
+                        .HasForeignKey("FKEmpleado");
+
+                    b.Navigation("Empleado");
                 });
 
             modelBuilder.Entity("Aereopuerto2.Entities.Conductor", b =>
