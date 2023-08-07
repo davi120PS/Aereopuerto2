@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230803143006_ejemplo")]
-    partial class ejemplo
+    [Migration("20230807010041_example")]
+    partial class example
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,9 @@ namespace Aereopuerto2.Migrations
 
                     b.Property<string>("Nombre")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NombreConductor")
                         .HasColumnType("longtext");
 
                     b.Property<int>("Pasajeros")

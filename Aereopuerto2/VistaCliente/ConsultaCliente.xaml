@@ -101,5 +101,6 @@
         <Button x:Name="BtnModificar" Content="Modificar Reserva" HorizontalAlignment="Left" Margin="315,389,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" Height="20" Width="160" Click="BtnModificar_Click"/>
         <Button x:Name="BtnCancelarR" Content="Cancelar Reserva" HorizontalAlignment="Left" Margin="315,414,0,0" VerticalAlignment="Top" Background="#FF3A62D7" FontFamily="Cascadia Code" Foreground="White" Width="160" Click="BtnCancelarR_Click"/>
         <Image HorizontalAlignment="Left" Height="500" VerticalAlignment="Center" Width="80" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
+        <Button x:Name="btnChat" Content="Chat" HorizontalAlignment="Left" Margin="563,388,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Width="47" Height="22" Click="btnChat_Click"/>
     </Grid>
 </Window>

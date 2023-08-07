@@ -9,7 +9,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Aereopuerto2.Migrations
 {
     /// <inheritdoc />
-    public partial class ejemplo : Migration
+    public partial class example : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,6 +55,7 @@ namespace Aereopuerto2.Migrations
                     TipoServicio = table.Column<string>(type: "longtext", nullable: false),
                     Pasajeros = table.Column<int>(type: "int", nullable: false),
                     Solicitud = table.Column<string>(type: "longtext", nullable: false),
+                    NombreConductor = table.Column<string>(type: "longtext", nullable: true),
                     HoraConductor = table.Column<string>(type: "longtext", nullable: true),
                     HoraHotel = table.Column<string>(type: "longtext", nullable: true)
                 },

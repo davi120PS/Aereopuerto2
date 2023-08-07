@@ -23,6 +23,7 @@ namespace Aereopuerto2.Entities
         public string TipoServicio { get; set; }
         public int Pasajeros { get; set; }
         public string Solicitud { get; set; }
+        public string? NombreConductor { get; set; }
         public string? HoraConductor { get; set; }
         public string? HoraHotel { get; set; }
     }

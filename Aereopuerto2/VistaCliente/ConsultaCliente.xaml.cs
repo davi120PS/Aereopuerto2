@@ -103,5 +103,12 @@ namespace Aereopuerto2.VistaCliente
             interfaz.Show();
             Close();
         }
+
+        private void btnChat_Click(object sender, RoutedEventArgs e)
+        {
+            VChatCliente cliente = new VChatCliente();
+            cliente.Show();
+            Close();
+        }
     }
 }

@@ -78,6 +78,9 @@ namespace Aereopuerto2.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("NombreConductor")
+                        .HasColumnType("longtext");
+
                     b.Property<int>("Pasajeros")
                         .HasColumnType("int");
 
