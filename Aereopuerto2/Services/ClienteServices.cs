@@ -1,6 +1,5 @@
 ﻿using Aereopuerto2.Contex;
 using Aereopuerto2.Entities;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +29,6 @@ namespace Aereopuerto2.Services
                         Correo = request.Correo,
                         TipoServicio = request.TipoServicio,
                         Pasajeros = request.Pasajeros,
-                        FKEmpleado = request.FKEmpleado,
                         Solicitud = "Aceptable"
                     };
                     _context.Cliente.Add(empleado);
@@ -104,7 +102,6 @@ namespace Aereopuerto2.Services
                 throw new Exception("ERROR: " + ex.Message);
             }
         }
-        
 
     }
 }

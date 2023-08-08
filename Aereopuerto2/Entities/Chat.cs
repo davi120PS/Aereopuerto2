@@ -13,8 +13,8 @@ namespace Aereopuerto2.Entities
         [Key] public int PKChat {get; set;}
         [ForeignKey("Cliente")] public int? FKCliente { get; set; }
         public Cliente Cliente { get; set; } 
-        [ForeignKey("Empleado")] public int? FKEmpleado { get; set; }
-        public Empleado Empleado { get; set; }
+        [ForeignKey("Empleado")] public int? FKConductor { get; set; }
+        public Empleado Conductor { get; set; }
         public string Mensaje {get; set;}
     }
 }

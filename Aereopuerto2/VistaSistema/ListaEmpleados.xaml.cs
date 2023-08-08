@@ -43,7 +43,6 @@ namespace Aereopuerto2.VistaSistema
                     empleado.Sexo = CbxSexo.Text;
                     empleado.Estatus = "";
                     empleado.Horarios = "";
-                    empleado.Conexion = 0;
 
                     services.Add(empleado);
                     MessageBox.Show("Empleado registrado");

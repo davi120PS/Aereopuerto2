@@ -22,7 +22,6 @@ namespace Aereopuerto2.Contex
         public DbSet<Chat> Chat { get; set; }
         public DbSet<Reserva> Reserva { get; set; }
         public DbSet<Sistema> Sistema { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Empleado>().HasData(
@@ -54,46 +53,37 @@ namespace Aereopuerto2.Contex
                     Matricula = "joge",
                     Contraseña = "123",
                     Correo = "joge@",
-                    Sexo = "Hombre",
-                    Estatus = "",
-                    Horarios = "",
+                    Sexo = "Hombre"
                 }
             );
-            //modelBuilder.Entity<Cliente>().HasData(
-            //    new Cliente
-            //    {
-            //        PKCliente = 1,
-            //        Nombre = "Paco",
-            //        Apellido = "Rabanne",
-            //        Edad = 36,
-            //        INE = "PACCB24",
-            //        Telefono = 23412,
-            //        Correo = "paco@",
-            //        TipoServicio = "VIP",
-            //        Pasajeros = 1,
-            //        Solicitud = "Aceptable",
-            //        Conductor = "",
-            //        HoraConductor = "",
-            //        HoraHotel = ""
-
-            //    },
-            //    new Cliente
-            //    {
-            //        PKCliente = 2,
-            //        Nombre = "Carolina",
-            //        Apellido = "Herrera",
-            //        Edad = 23,
-            //        INE = "CAHR3G",
-            //        Telefono = 87868,
-            //        Correo = "caro@",
-            //        TipoServicio = "Premium",
-            //        Pasajeros = 2,
-            //        Solicitud = "Aceptable",
-            //        Conductor = "",
-            //        HoraConductor = "",
-            //        HoraHotel = ""
-            //    }
-            //);
+            modelBuilder.Entity<Cliente>().HasData(
+                new Cliente
+                {
+                    PKCliente = 1,
+                    Nombre = "Paco",
+                    Apellido = "Rabanne",
+                    Edad = 36,
+                    INE = "PACCB24",
+                    Telefono = 23412,
+                    Correo = "paco@",
+                    TipoServicio = "VIP",
+                    Pasajeros = 1,
+                    Solicitud = "Aceptable"
+                },
+                new Cliente
+                {
+                    PKCliente = 2,
+                    Nombre = "Carolina",
+                    Apellido = "Herrera",
+                    Edad = 23,
+                    INE = "CAHR3G",
+                    Telefono = 87868,
+                    Correo = "caro@",
+                    TipoServicio = "Premium",
+                    Pasajeros = 2,
+                    Solicitud = "Aceptable"
+                }
+            );
         }
     }
 }
