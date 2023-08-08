@@ -46,6 +46,11 @@ namespace Aereopuerto2.VistaGerenteR
             txtCorreo.Text = cliente.Correo.ToString();
             cbxServicio.Text = cliente.TipoServicio.ToString();
             txtPasajeros.Text = cliente.Pasajeros.ToString();
+            CbHoraConductor.Text = cliente.HoraConductor.ToString();
+            CbHoraHotel.Text = cliente.HoraHotel.ToString();
+            CbNombreConductor.Text = cliente.FKConductor.ToString();
+            SolicitudCliente();
+            BotonesVisibles();
         }
         public void SolicitudCliente()
         {
@@ -99,29 +104,51 @@ namespace Aereopuerto2.VistaGerenteR
             txtPasajeros.Clear();
             CbNombreConductor.SelectedItem = null;
             txtEstatus.Clear();
+            MenuGerenteR vista = new MenuGerenteR();
+            vista.Show();
+            Close();
         }
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
             int userId = Convert.ToInt32(txtNoReserva.Text);
+            
             Cliente cliente = new Cliente()
             {
                 PKCliente = int.Parse(txtNoReserva.Text),
                 Solicitud = "Listo",
-                FKConductor = int.Parse(CbNombreConductor.SelectedValuePath.ToString()),
+                FKConductor = GetConductorById(),
                 HoraHotel = CbHoraHotel.Text,
                 HoraConductor = CbHoraConductor.Text,
             };
             services3.UpdateReserva(cliente);
             MessageBox.Show("Reserva Confirmada");
+            MenuGerenteR vista = new MenuGerenteR();
+            vista.Show();
+            Close();
         }
-        public Conductor GetConductorById(int ventaId)
+        public int GetConductorById()
         {
+            string nombrec = CbNombreConductor.Text;
             using (var context = new ApplicationDbContext())
             {
-                // Suponiendo que DbSet "Ventas" representa la tabla de ventas en la base de datos.
-                var venta = context.Conductor.Find(ventaId);
-                return venta;
+                // Suponiendo que DbSet "Empleados" representa la tabla de ventas en la base de datos.
+                var conductorbd = context.Empleado.FirstOrDefault(x => x.Nombre == nombrec);
+                return conductorbd.PKEmpleado;
+            }
+        }
+        public void BotonesVisibles()
+        {
+            if (txtSolicitud.Text != "")
+            {
+                if (txtSolicitud.Text == "Aceptable" || txtSolicitud.Text == "Modificable")
+                {
+                    BtnCancelarR.Visibility = Visibility.Collapsed;
+                }
+                else if (txtSolicitud.Text == "Cancelable")
+                {
+                    BtnAceptar.Visibility = Visibility.Collapsed;
+                }
             }
         }
     }

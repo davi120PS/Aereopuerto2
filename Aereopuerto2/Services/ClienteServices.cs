@@ -102,6 +102,22 @@ namespace Aereopuerto2.Services
                 throw new Exception("ERROR: " + ex.Message);
             }
         }
+        public string GetConductores(int conductorid)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    var empleados = _context.Empleado.FirstOrDefault(e => e.PKEmpleado == conductorid);
+                    return empleados.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
+            }
+        }
 
     }
 }

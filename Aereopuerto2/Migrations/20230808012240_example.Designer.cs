@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230803134114_example")]
+    [Migration("20230808012240_example")]
     partial class example
     {
         /// <inheritdoc />

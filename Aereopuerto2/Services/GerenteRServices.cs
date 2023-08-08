@@ -16,7 +16,7 @@ namespace Aereopuerto2.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Cliente> usuarios = _context.Cliente.ToList();
+                    List<Cliente> usuarios = _context.Cliente.Where(x => x.Solicitud != "Listo").ToList();
                     //List<Usuario> usuarios = new List<Usuario>();
                     //usuarios = _context.Usuarios.ToList();
                     return usuarios;
