@@ -39,21 +39,14 @@ namespace Aereopuerto2.VistaCliente
                 Telefono = int.Parse(txtTelefono.Text),
                 Correo = txtCorreo.Text,
                 TipoServicio = cbxServicio.Text,
-                Pasajeros = int.Parse(txtPasajeros.Text)
+                Pasajeros = int.Parse(txtPasajeros.Text),
+                Solicitud = "Aceptable"
             };
             if (!string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtApellido.Text))
             {
                 services.Add(cliente);
                 MessageBox.Show("Reserva generada exitosamente");
-                txtNombre.Clear();
-                txtApellido.Clear();
-                txtEdad.Clear();
-                txtINE.Clear();
-                txtTelefono.Clear();
-                txtCorreo.Clear();
-                cbxServicio.Items.Clear();
-                txtPasajeros.Clear();
-                txtNoReserva.Clear();
+                LimpiarCampos();
             }
             else
                 MessageBox.Show("Los datos no han sido agregados correctamente");
@@ -68,6 +61,18 @@ namespace Aereopuerto2.VistaCliente
             MainWindow interfaz = new ();
             interfaz.Show();
             Close();
+        }
+        public void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtEdad.Clear();
+            txtINE.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
+            cbxServicio.Items.Clear();
+            txtPasajeros.Clear();
+            txtNoReserva.Clear();
         }
     }
 }

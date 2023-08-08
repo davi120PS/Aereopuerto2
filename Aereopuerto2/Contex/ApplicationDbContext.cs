@@ -74,7 +74,10 @@ namespace Aereopuerto2.Contex
                     Correo = "paco@",
                     TipoServicio = "VIP",
                     Pasajeros = 1,
-                    Solicitud = "Aceptable"
+                    Solicitud = "",
+                    NombreConductor = "",
+                    HoraConductor = "",
+                    HoraHotel = ""
                 },
                 new Cliente
                 {
@@ -87,7 +90,10 @@ namespace Aereopuerto2.Contex
                     Correo = "caro@",
                     TipoServicio = "Premium",
                     Pasajeros = 2,
-                    Solicitud = "Aceptable"
+                    Solicitud = "",
+                    NombreConductor = "",
+                    HoraConductor = "",
+                    HoraHotel = ""
                 }
             );
         }
