@@ -163,5 +163,10 @@ namespace Aereopuerto2.VistaGerenteR
             CbNombreConductor.SelectedItem = null;
             txtEstatus.Clear();
         }
+
+        private void CbNombreConductor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

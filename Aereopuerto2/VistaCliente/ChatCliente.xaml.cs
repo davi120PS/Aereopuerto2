@@ -1,5 +1,6 @@
 ﻿using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
+using Aereopuerto2.VistaConductor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +15,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Aereopuerto2.VistaConductor
+namespace Aereopuerto2.VistaCliente
 {
     /// <summary>
-    /// Lógica de interacción para VistaChat.xaml
+    /// Lógica de interacción para ChatCliente.xaml
     /// </summary>
-    public partial class VistaChat : Window
+    public partial class ChatCliente : Window
     {
-        public VistaChat()
+        public ChatCliente()
         {
             InitializeComponent();
-            GetChatTable();
-            GetClientes();
         }
-        EmpleadoServices services = new EmpleadoServices();
         ConductorSevices conductor = new ConductorSevices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
@@ -86,16 +84,6 @@ namespace Aereopuerto2.VistaConductor
             ListaServicios listaServicios = new ListaServicios();
             listaServicios.Show();
             Close();
-        }
-        public void GetClientes()
-        {
-            CbClientes.ItemsSource = services.GetClientes();
-            CbClientes.DisplayMemberPath = "Nombre";
-            CbClientes.SelectedValuePath = "PKCliente";
-        }
-        private void CbClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

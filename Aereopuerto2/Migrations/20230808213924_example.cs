@@ -9,7 +9,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Aereopuerto2.Migrations
 {
     /// <inheritdoc />
-    public partial class Aereopuerto23AM : Migration
+    public partial class example : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
