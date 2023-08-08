@@ -136,19 +136,5 @@ namespace Aereopuerto2.VistaCliente
             cbxServicio.Text = string.Empty;
             txtPasajeros.Text = string.Empty;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtNombreConductor.Text != "")
-            {
-                ChatCliente chat = new ChatCliente();
-                chat.Show();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Sin conductor asignado");
-            }
-        }
     }
 }

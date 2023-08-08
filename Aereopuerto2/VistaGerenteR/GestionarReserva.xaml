@@ -59,7 +59,7 @@
             <ComboBoxItem Content="12PM"/>
         </ComboBox>
         <TextBox x:Name="txtPasajeros" HorizontalAlignment="Left" Margin="577,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>
-        <ComboBox x:Name="CbNombreConductor" HorizontalAlignment="Left" Margin="578,275,0,0" VerticalAlignment="Top" Width="203" SelectedIndex="210" SelectionChanged="CbNombreConductor_SelectionChanged"/>
+        <ComboBox x:Name="CbNombreConductor" HorizontalAlignment="Left" Margin="578,275,0,0" VerticalAlignment="Top" Width="203" SelectedIndex="210"/>
         <TextBox x:Name="txtEstatus" HorizontalAlignment="Left" Margin="577,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>
         <Label Content="Solicitud" Margin="483,62,261,0" VerticalAlignment="Top" Height="34"/>
         <TextBox x:Name="txtSolicitud" HorizontalAlignment="Left" Margin="565,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" IsEnabled="False"/>

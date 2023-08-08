@@ -25,10 +25,8 @@ namespace Aereopuerto2.VistaConductor
         {
             InitializeComponent();
             GetChatTable();
-            GetClientes();
         }
-        EmpleadoServices services = new EmpleadoServices();
-        ConductorSevices conductor = new ConductorSevices();
+        ConductorSevices conductorSevices = new ConductorSevices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
             if (txtPKChat.Text == "")
@@ -38,7 +36,7 @@ namespace Aereopuerto2.VistaConductor
                     Mensaje = txtMensaje.Text,
                 };
 
-                conductor.AddChat(chat);
+                conductorSevices.AddChat(chat);
                 MessageBox.Show("Mensaje enviado");
                 txtMensaje.Clear();
                 GetChatTable();
@@ -53,14 +51,14 @@ namespace Aereopuerto2.VistaConductor
                     Mensaje = txtMensaje.Text,
                 };
                 MessageBox.Show("Mensaje editado");
-                conductor.UpdateMessage(chat);
+                conductorSevices.UpdateMessage(chat);
                 txtMensaje.Clear();
                 GetChatTable();
             }
         }
         public void GetChatTable()
         {
-            ChatTable.ItemsSource = conductor.GetChat();
+            ChatTable.ItemsSource = conductorSevices.GetChat();
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
@@ -74,7 +72,7 @@ namespace Aereopuerto2.VistaConductor
             int chatId = Convert.ToInt32(txtPKChat.Text);
             Chat chat = new Chat();
             chat.PKChat = chatId;
-            conductor.DeleteChat(chatId);
+            conductorSevices.DeleteChat(chatId);
             MessageBox.Show("Mensaje eliminado");
             txtPKChat.Clear();
             txtMensaje.Clear();
@@ -86,16 +84,6 @@ namespace Aereopuerto2.VistaConductor
             ListaServicios listaServicios = new ListaServicios();
             listaServicios.Show();
             Close();
-        }
-        public void GetClientes()
-        {
-            CbClientes.ItemsSource = services.GetClientes();
-            CbClientes.DisplayMemberPath = "Nombre";
-            CbClientes.SelectedValuePath = "PKCliente";
-        }
-        private void CbClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
