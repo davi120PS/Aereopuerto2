@@ -45,10 +45,18 @@ namespace Aereopuerto2.VistaSistema
                 CbHorario.Text = "";
                 GetHorarioTable();
             }
+            else
+                MessageBox.Show("Selecciona a un conductor");
         }
         public void GetHorarioTable()
         {
             HorariosTable.ItemsSource = empleadoservices.GetConductores();
+        }
+        public void GetHorario()
+        {
+            CbHorario.ItemsSource = empleadoservices.GetHorarios();
+            CbHorario.DisplayMemberPath = "Horarios";
+            CbHorario.SelectedValuePath = "PKEmpleado";
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {

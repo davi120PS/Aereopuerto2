@@ -46,7 +46,7 @@ namespace Aereopuerto2.VistaCliente
                     txtHoraHotel.Text = empleado.HoraHotel.ToString();
                     txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
 
-                    switch (empleado.Solicitud)
+                    /*switch (empleado.Solicitud)
                     {
                         case "Aceptable":
                             txtEstatus.Text = "En espera";
@@ -60,7 +60,7 @@ namespace Aereopuerto2.VistaCliente
                         case "Listo":
                             txtEstatus.Text = "Aceptada";
                             break;
-                    }
+                    }*/
                 }
                 else
                 {
@@ -85,6 +85,7 @@ namespace Aereopuerto2.VistaCliente
                 Correo = txtCorreo.Text,
                 TipoServicio = cbxServicio.Text,
                 Pasajeros = int.Parse(txtPasajeros.Text),
+                Estatus = "Por confirmar modificación",
                 Solicitud = "Modificable"
             };
             services.Update(usuario);
@@ -108,6 +109,7 @@ namespace Aereopuerto2.VistaCliente
                 Correo = txtCorreo.Text,
                 TipoServicio = cbxServicio.Text,
                 Pasajeros = int.Parse(txtPasajeros.Text),
+                Estatus = "Por confirmar cancelación",
                 Solicitud = "Cancelar"
             };
             services.Update(usuario);

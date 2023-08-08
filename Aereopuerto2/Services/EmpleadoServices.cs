@@ -139,5 +139,21 @@ namespace Aereopuerto2.Services
                 throw new Exception("Error " + ex.Message);
             }
         }
+        public List<Empleado> GetHorarios()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Empleado> conductor = _context.Empleado.Where(x=>x.Puesto == "Conductor").ToList();
+                    return conductor;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
+            }
+        }
     }
 }

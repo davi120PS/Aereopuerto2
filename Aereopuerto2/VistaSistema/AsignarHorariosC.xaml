@@ -27,7 +27,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="632,10,0,0" VerticalAlignment="Top" Width="158" Source="/Img/Logo.png" Stretch="Fill"/>
         <Label Content="Asignar Horarios" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Cascadia Mono" Foreground="#FF3A62D7"/>
         <ComboBox x:Name="CbHorario" HorizontalAlignment="Left" Margin="113,204,0,0" VerticalAlignment="Top" Width="120"><ComboBoxItem Content="6AM-2PM"/>
-            <ComboBoxItem Content="2PM-10"/>
+            <ComboBoxItem Content="2PM-10PM"/>
             <ComboBoxItem Content="10PM-6AM"/>
         </ComboBox>
         <Label Content="Asignar Horario" HorizontalAlignment="Left" Margin="113,178,0,0" VerticalAlignment="Top"/>

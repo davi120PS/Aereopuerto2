@@ -32,7 +32,7 @@ namespace Aereopuerto2.VistaSistema
         {
             if (txtPKEmpleado.Text == "")
             {
-                if (txtNombre.Text != "" || CbxPuesto.Text != "" || txtMatricula.Text != "" || txtContraseña.Text != "" || txtCorreo.Text != "" || CbxSexo.Text != null)
+                if (txtNombre.Text != "" && CbxPuesto.Text != "" && txtMatricula.Text != "" && txtContraseña.Text != "" && CbxSexo.Text != null && txtCorreo.Text != "")
                 {
                     Empleado empleado = new Empleado();
                     empleado.Nombre = txtNombre.Text;

@@ -25,5 +25,6 @@ namespace Aereopuerto2.Entities
         public string? NombreConductor { get; set; }
         public string? HoraConductor { get; set; }
         public string? HoraHotel { get; set; }
+        public string? Estatus { get; set; }
     }
 }

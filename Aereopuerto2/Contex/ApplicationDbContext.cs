@@ -58,7 +58,19 @@ namespace Aereopuerto2.Contex
                     Contraseña = "123",
                     Correo = "joge@",
                     Sexo = "Hombre",
-                    Horarios = "",
+                    Horarios = "2PM-10PM",
+                    Estatus = ""
+                },
+                new Empleado
+                {
+                    PKEmpleado = 4,
+                    Nombre = "Jonathan",
+                    Puesto = "Conductor",
+                    Matricula = "jony",
+                    Contraseña = "123",
+                    Correo = "joge@",
+                    Sexo = "Hombre",
+                    Horarios = "10PM-6AM",
                     Estatus = ""
                 }
             );
@@ -74,7 +86,7 @@ namespace Aereopuerto2.Contex
                     Correo = "paco@",
                     TipoServicio = "VIP",
                     Pasajeros = 1,
-                    Solicitud = "",
+                    Solicitud = "Aceptable",
                     NombreConductor = "",
                     HoraConductor = "",
                     HoraHotel = ""

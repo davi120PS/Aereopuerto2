@@ -47,5 +47,25 @@ namespace Aereopuerto2.Services
                 throw new Exception("Sucedió un error" + ex.Message);
             }
         }
+        public void CancelarReserva(Cliente request)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Cliente update = _context.Cliente.Find(request.PKCliente);
+                    update.FKEmpleado = request.FKEmpleado;
+                    update.Estatus = request.Estatus;
+                    update.Solicitud = request.Solicitud;
+
+                    _context.Cliente.Update(update);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Sucedió un error" + ex.Message);
+            }
+        }
     }
 }

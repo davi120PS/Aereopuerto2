@@ -30,11 +30,6 @@ namespace Aereopuerto2.VistaConductor
         EmpleadoServices services = new EmpleadoServices();
         ConductorSevices conductorServices = new ConductorSevices();
         MasServices masServices = new MasServices();
-        
-        private void ClientesTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
         public void GetClientesTable()
         {
             ClientesTable.ItemsSource = services.GetClientes();

@@ -31,6 +31,42 @@ namespace Aereopuerto2.VistaGerenteR
         EmpleadoServices services = new EmpleadoServices();
         ClienteServices services2 = new ClienteServices();
         GerenteRServices services3 = new GerenteRServices();
+        private void BtnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            int userId = Convert.ToInt32(txtNoReserva.Text);
+
+            Cliente cliente = new Cliente()
+            {
+                PKCliente = int.Parse(txtNoReserva.Text),
+                Estatus = "En curso",
+                Solicitud = "Listo",
+                FKEmpleado = GetConductorById(),
+                HoraHotel = CbHoraHotel.Text,
+                HoraConductor = CbHoraConductor.Text,
+            };
+            services3.UpdateReserva(cliente);
+            MessageBox.Show("Reserva Confirmada");
+            MenuGerenteR vista = new MenuGerenteR();
+            vista.Show();
+            Close();
+        }
+        private void BtnCancelarR_Click(object sender, RoutedEventArgs e)
+        {
+            int userId = Convert.ToInt32(txtNoReserva.Text);
+            Cliente cliente = new Cliente()
+            {
+                PKCliente = userId,
+                Estatus = "Cancelada",
+                Solicitud = "Listo"
+            };
+            services3.CancelarReserva(cliente);
+            services2.DeleteCliente(userId);
+            MessageBox.Show("Reserva Cancelada");
+            LimpiarCampos();
+            MenuGerenteR vista = new MenuGerenteR();
+            vista.Show();
+            Close();
+        }
         public void GetReserva(object sender, RoutedEventArgs e)
         {
             Cliente cliente = new Cliente();
@@ -46,13 +82,15 @@ namespace Aereopuerto2.VistaGerenteR
             txtCorreo.Text = cliente.Correo.ToString();
             cbxServicio.Text = cliente.TipoServicio.ToString();
             txtPasajeros.Text = cliente.Pasajeros.ToString();
+            txtEstatus.Text = cliente.Estatus.ToString();
+            txtSolicitud.Text = cliente.Solicitud.ToString();
             CbHoraConductor.Text = cliente.HoraConductor.ToString();
             CbHoraHotel.Text = cliente.HoraHotel.ToString();
             CbNombreConductor.Text = cliente.FKEmpleado.ToString();
-            SolicitudCliente();
+            //SolicitudCliente();
             BotonesVisibles();
         }
-        public void SolicitudCliente()
+        /*public void SolicitudCliente()
         {
             switch (txtSolicitud.Text)
             {
@@ -69,50 +107,7 @@ namespace Aereopuerto2.VistaGerenteR
                     txtEstatus.Text = "En espera";
                     break;
             }
-        }
-        public void GetConductores()
-        {
-            CbNombreConductor.ItemsSource = services.GetConductores();
-            CbNombreConductor.DisplayMemberPath = "Nombre";
-            CbNombreConductor.SelectedValuePath = "PKConductor";
-        }
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            MenuGerenteR vista = new MenuGerenteR();
-            vista.Show();
-            Close();
-        }
-
-        private void BtnCancelarR_Click(object sender, RoutedEventArgs e)
-        {
-            int userId = Convert.ToInt32(txtNoReserva.Text);
-            Cliente cliente = new Cliente();
-            cliente.PKCliente = userId;
-            services2.DeleteCliente(userId);
-            MessageBox.Show("Reserva Cancelada");
-            LimpiarCampos();
-            MenuGerenteR vista = new MenuGerenteR();
-            vista.Show();
-            Close();
-        }
-        private void BtnAceptar_Click(object sender, RoutedEventArgs e)
-        {
-            int userId = Convert.ToInt32(txtNoReserva.Text);
-
-            Cliente cliente = new Cliente()
-            {
-                PKCliente = int.Parse(txtNoReserva.Text),
-                Solicitud = "Listo",
-                FKEmpleado = GetConductorById(),
-                HoraHotel = CbHoraHotel.Text,
-                HoraConductor = CbHoraConductor.Text,
-            };
-            services3.UpdateReserva(cliente);
-            MessageBox.Show("Reserva Confirmada");
-            MenuGerenteR vista = new MenuGerenteR();
-            vista.Show();
-            Close();
-        }
+        }*/
         public int GetConductorById()
         {
             string nombrec = CbNombreConductor.Text;
@@ -130,12 +125,26 @@ namespace Aereopuerto2.VistaGerenteR
                 if (txtSolicitud.Text == "Aceptable" || txtSolicitud.Text == "Modificable")
                 {
                     BtnCancelarR.Visibility = Visibility.Collapsed;
+                    //txtEstatus.Text = "En espera";
                 }
                 else if (txtSolicitud.Text == "Cancelable")
                 {
                     BtnAceptar.Visibility = Visibility.Collapsed;
+                    //txtEstatus.Text = "En espera";
                 }
             }
+        }
+        public void GetConductores()
+        {
+            CbNombreConductor.ItemsSource = services.GetConductores();
+            CbNombreConductor.DisplayMemberPath = "Nombre";
+            CbNombreConductor.SelectedValuePath = "PKConductor";
+        }
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGerenteR vista = new MenuGerenteR();
+            vista.Show();
+            Close();
         }
         public void LimpiarCampos()
         {

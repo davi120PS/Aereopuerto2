@@ -30,20 +30,22 @@ namespace Aereopuerto2.VistaCliente
         ClienteServices services = new ClienteServices();
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            Cliente cliente = new Cliente()
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtEdad.Text != "" && txtINE.Text != "" && 
+                txtTelefono.Text != "" && txtCorreo.Text != "" && cbxServicio.Text != "" && txtPasajeros.Text != "")
             {
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Edad = int.Parse(txtEdad.Text),
-                INE = txtINE.Text,
-                Telefono = int.Parse(txtTelefono.Text),
-                Correo = txtCorreo.Text,
-                TipoServicio = cbxServicio.Text,
-                Pasajeros = int.Parse(txtPasajeros.Text),
-                Solicitud = "Aceptable"
-            };
-            if (!string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtApellido.Text))
-            {
+                Cliente cliente = new Cliente()
+                {
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellido.Text,
+                    Edad = int.Parse(txtEdad.Text),
+                    INE = txtINE.Text,
+                    Telefono = int.Parse(txtTelefono.Text),
+                    Correo = txtCorreo.Text,
+                    TipoServicio = cbxServicio.Text,
+                    Pasajeros = int.Parse(txtPasajeros.Text),
+                    Solicitud = "Aceptable",
+                    Estatus = "Por confirmar"
+                };
                 services.Add(cliente);
                 MessageBox.Show("Reserva generada exitosamente");
                 LimpiarCampos();

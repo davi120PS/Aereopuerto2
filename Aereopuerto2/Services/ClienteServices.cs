@@ -29,7 +29,8 @@ namespace Aereopuerto2.Services
                         Correo = request.Correo,
                         TipoServicio = request.TipoServicio,
                         Pasajeros = request.Pasajeros,
-                        Solicitud = "Aceptable"
+                        Solicitud = "Aceptable",
+                        Estatus = request.Estatus
                     };
                     _context.Cliente.Add(empleado);
                     _context.SaveChanges();
@@ -72,6 +73,7 @@ namespace Aereopuerto2.Services
                     update.TipoServicio = request.TipoServicio;
                     update.Pasajeros = request.Pasajeros;
                     update.Solicitud = request.Solicitud;
+                    update.Estatus = request.Estatus;
 
                     _context.Cliente.Update(update);
                     _context.SaveChanges();

@@ -72,7 +72,7 @@ namespace Aereopuerto2.Services
                         Chat res = new Chat();
                         res.Mensaje = request.Mensaje;
                         res.FKCliente = request.FKCliente;
-                        res.FKConductor = request.FKConductor;
+                        res.FKEmpleado = request.FKEmpleado;
                         _context.Chat.Add(res);
                         _context.SaveChanges();
                     }
