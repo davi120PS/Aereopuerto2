@@ -33,7 +33,9 @@ namespace Aereopuerto2.Contex
                     Matricula = "davi",
                     Contraseña = "123",
                     Correo = "davi@",
-                    Sexo = "Hombre"
+                    Sexo = "Hombre",
+                    Horarios = "",
+                    Estatus = ""
                 },
                 new Empleado
                 {
@@ -43,7 +45,9 @@ namespace Aereopuerto2.Contex
                     Matricula = "dieg",
                     Contraseña = "123",
                     Correo = "dieg@",
-                    Sexo = "Hombre"
+                    Sexo = "Hombre",
+                    Horarios = "",
+                    Estatus = ""
                 },
                 new Empleado
                 {
@@ -53,7 +57,9 @@ namespace Aereopuerto2.Contex
                     Matricula = "joge",
                     Contraseña = "123",
                     Correo = "joge@",
-                    Sexo = "Hombre"
+                    Sexo = "Hombre",
+                    Horarios = "",
+                    Estatus = ""
                 }
             );
             modelBuilder.Entity<Cliente>().HasData(

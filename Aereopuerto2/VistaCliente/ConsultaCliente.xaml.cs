@@ -42,18 +42,30 @@ namespace Aereopuerto2.VistaCliente
                     txtCorreo.Text = empleado.Correo;
                     cbxServicio.Text = empleado.TipoServicio;
                     txtPasajeros.Text = empleado.Pasajeros.ToString();
+                    txtHoraConductor.Text = empleado.HoraConductor.ToString();
+                    txtHoraHotel.Text = empleado.HoraHotel.ToString();
+                    txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
+
+                    switch (empleado.Solicitud)
+                    {
+                        case "Aceptable":
+                            txtEstatus.Text = "En espera";
+                            break;
+                        case "Modificable":
+                            txtEstatus.Text = "En espera";
+                            break;
+                        case "Cancelar":
+                            txtEstatus.Text = "En espera";
+                            break;
+                        case "Listo":
+                            txtEstatus.Text = "Aceptada";
+                            break;
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Reserva no encontrada");
-                    txtNombre.Text = string.Empty;
-                    txtApellido.Text = string.Empty;
-                    txtEdad.Text = string.Empty;
-                    txtINE.Text = string.Empty;
-                    txtTelefono.Text = string.Empty;
-                    txtCorreo.Text = string.Empty;
-                    cbxServicio.Text = string.Empty;
-                    txtPasajeros.Text = string.Empty;
+                    LimpiarCampos();
                 }
             }
             else
@@ -76,7 +88,11 @@ namespace Aereopuerto2.VistaCliente
                 Solicitud = "Modificable"
             };
             services.Update(usuario);
-            MessageBox.Show("Cliente actualizado");
+            MessageBox.Show("Solicitud de modificacion enviada");
+            LimpiarCampos();
+            MainWindow interfaz = new();
+            interfaz.Show();
+            Hide();
         }
         private void BtnCancelarR_Click(object sender, RoutedEventArgs e)
         {
@@ -94,14 +110,29 @@ namespace Aereopuerto2.VistaCliente
                 Pasajeros = int.Parse(txtPasajeros.Text),
                 Solicitud = "Cancelar"
             };
-            MessageBox.Show("Cliente actualizado");
             services.Update(usuario);
+            MessageBox.Show("Solicitud de cancelacion enviada");
+            LimpiarCampos();
+            MainWindow interfaz = new();
+            interfaz.Show();
+            Hide();
         }
         private void BtnRegresar_Click(object sender, RoutedEventArgs e)
         {
             MainWindow interfaz = new ();
             interfaz.Show();
             Close();
+        }
+        public void LimpiarCampos()
+        {
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtEdad.Text = string.Empty;
+            txtINE.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            cbxServicio.Text = string.Empty;
+            txtPasajeros.Text = string.Empty;
         }
     }
 }
