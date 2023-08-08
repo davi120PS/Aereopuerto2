@@ -1,18 +1,18 @@
-﻿<Window x:Class="Aereopuerto2.VistaConductor.VistaChat"
+﻿<Window x:Class="Aereopuerto2.VistaCliente.ChatCliente"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Aereopuerto2.VistaConductor"
+        xmlns:local="clr-namespace:Aereopuerto2.VistaCliente"
         mc:Ignorable="d"
-        Title="VistaChat" Height="450" Width="800">
+        Title="ChatCliente" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="ChatTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="158,132,130,116">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PKChat}" />
                 <DataGridTextColumn Header="Mensaje" Binding="{Binding Mensaje}" />
                 <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nombre}" />
-                <DataGridTextColumn Header="Conductor" Binding="{Binding Conductor.NombreConductor}" />
+                <DataGridTextColumn Header="Conductor" Binding="{Binding Cliente.NombreConductor}" />
 
                 <DataGridTemplateColumn Header="Editar">
                     <DataGridTemplateColumn.CellTemplate>
@@ -38,7 +38,5 @@
         <TextBox x:Name="txtMensaje" HorizontalAlignment="Left" Margin="158,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423" FontFamily="Cascadia Code"/>
         <Button x:Name="BtnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="581,323,0,0" VerticalAlignment="Top" Width="89" Height="16" FontFamily="Cascadia Code" Click="BtnEnviar_Click"/>
         <Button x:Name="btnBack" Content="Regresar" HorizontalAlignment="Left" Margin="107,16,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="30" Width="61" Click="btnBack_Click"/>
-        <ComboBox x:Name="CbClientes" HorizontalAlignment="Left" Margin="692,196,0,0" VerticalAlignment="Top" Width="81" Height="21" SelectionChanged="CbClientes_SelectionChanged"/>
-        <Label Content="Enviar a" HorizontalAlignment="Left" Margin="692,171,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

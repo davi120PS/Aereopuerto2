@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aereopuerto2.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Aereopuerto2.VistaSistema
         {
             InitializeComponent();
         }
+        EmpleadoServices empleadoServices = new EmpleadoServices();
         private void BtnListEmpleados_Click(object sender, RoutedEventArgs e)
         {
             ListaEmpleados lista = new ListaEmpleados();

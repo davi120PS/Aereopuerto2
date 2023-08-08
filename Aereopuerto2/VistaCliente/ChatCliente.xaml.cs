@@ -1,5 +1,6 @@
 ﻿using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
+using Aereopuerto2.VistaConductor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,21 +15,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Aereopuerto2.VistaConductor
+namespace Aereopuerto2.VistaCliente
 {
     /// <summary>
-    /// Lógica de interacción para VistaChat.xaml
+    /// Lógica de interacción para ChatCliente.xaml
     /// </summary>
-    public partial class VistaChat : Window
+    public partial class ChatCliente : Window
     {
-        public VistaChat()
+        public ChatCliente()
         {
             InitializeComponent();
-            GetChatTable();
-            GetClientes();
         }
-        EmpleadoServices services = new EmpleadoServices();
-        ConductorSevices conductorSevices = new ConductorSevices();
+        ConductorSevices conductor = new ConductorSevices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
             if (txtPKChat.Text == "")
@@ -38,7 +36,7 @@ namespace Aereopuerto2.VistaConductor
                     Mensaje = txtMensaje.Text,
                 };
 
-                conductorSevices.AddChat(chat);
+                conductor.AddChat(chat);
                 MessageBox.Show("Mensaje enviado");
                 txtMensaje.Clear();
                 GetChatTable();
@@ -53,20 +51,14 @@ namespace Aereopuerto2.VistaConductor
                     Mensaje = txtMensaje.Text,
                 };
                 MessageBox.Show("Mensaje editado");
-                conductorSevices.UpdateMessage(chat);
+                conductor.UpdateMessage(chat);
                 txtMensaje.Clear();
                 GetChatTable();
             }
         }
         public void GetChatTable()
         {
-            ChatTable.ItemsSource = conductorSevices.GetChat();
-        }
-        public void GetClientes()
-        {
-            CbClientes.ItemsSource = services.GetClientes();
-            CbClientes.DisplayMemberPath = "Nombre";
-            CbClientes.SelectedValuePath = "PKCliente";
+            ChatTable.ItemsSource = conductor.GetChat();
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
@@ -80,7 +72,7 @@ namespace Aereopuerto2.VistaConductor
             int chatId = Convert.ToInt32(txtPKChat.Text);
             Chat chat = new Chat();
             chat.PKChat = chatId;
-            conductorSevices.DeleteChat(chatId);
+            conductor.DeleteChat(chatId);
             MessageBox.Show("Mensaje eliminado");
             txtPKChat.Clear();
             txtMensaje.Clear();

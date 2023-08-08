@@ -35,7 +35,8 @@ namespace Aereopuerto2.Contex
                     Correo = "davi@",
                     Sexo = "Hombre",
                     Horarios = "",
-                    Estatus = ""
+                    Estatus = "",
+                    Conexion = 0
                 },
                 new Empleado
                 {
@@ -47,7 +48,8 @@ namespace Aereopuerto2.Contex
                     Correo = "dieg@",
                     Sexo = "Hombre",
                     Horarios = "",
-                    Estatus = ""
+                    Estatus = "",
+                    Conexion = 0
                 },
                 new Empleado
                 {
@@ -59,7 +61,8 @@ namespace Aereopuerto2.Contex
                     Correo = "joge@",
                     Sexo = "Hombre",
                     Horarios = "2PM-10PM",
-                    Estatus = ""
+                    Estatus = "",
+                    Conexion = 0
                 },
                 new Empleado
                 {
@@ -71,7 +74,8 @@ namespace Aereopuerto2.Contex
                     Correo = "joge@",
                     Sexo = "Hombre",
                     Horarios = "10PM-6AM",
-                    Estatus = ""
+                    Estatus = "",
+                    Conexion = 0
                 }
             );
             modelBuilder.Entity<Cliente>().HasData(

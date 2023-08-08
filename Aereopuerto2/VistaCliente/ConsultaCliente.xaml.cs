@@ -44,7 +44,7 @@ namespace Aereopuerto2.VistaCliente
                     txtPasajeros.Text = empleado.Pasajeros.ToString();
                     txtHoraConductor.Text = empleado.HoraConductor.ToString();
                     txtHoraHotel.Text = empleado.HoraHotel.ToString();
-                    txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
+                    //txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
 
                     /*switch (empleado.Solicitud)
                     {
@@ -135,6 +135,20 @@ namespace Aereopuerto2.VistaCliente
             txtCorreo.Text = string.Empty;
             cbxServicio.Text = string.Empty;
             txtPasajeros.Text = string.Empty;
+        }
+
+        private void ChatClienteConductor_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtNombreConductor.Text != "")
+            {
+                ChatCliente chat = new ChatCliente();
+                chat.Show();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Sin conductor asignado");
+            }
         }
     }
 }
