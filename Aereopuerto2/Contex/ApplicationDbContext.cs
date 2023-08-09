@@ -60,7 +60,7 @@ namespace Aereopuerto2.Contex
                     Correo = "joge@",
                     Sexo = "Hombre",
                     Horarios = "2PM-10PM",
-                    Estatus = "",
+                    Estatus = "Disponible",
                     Conexion = 0
                 },
                 new Empleado
@@ -73,7 +73,7 @@ namespace Aereopuerto2.Contex
                     Correo = "joge@",
                     Sexo = "Hombre",
                     Horarios = "10PM-6AM",
-                    Estatus = "",
+                    Estatus = "Disponible",
                     Conexion = 0
                 }
             );

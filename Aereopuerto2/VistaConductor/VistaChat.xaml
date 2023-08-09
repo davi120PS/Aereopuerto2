@@ -36,9 +36,9 @@
         <Label Content="Comunicacion con clientes" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FF3A62D7" FontFamily="Cascadia Mono"/>
         <TextBox x:Name="txtPKChat" HorizontalAlignment="Left" Margin="692,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
         <TextBox x:Name="txtMensaje" HorizontalAlignment="Left" Margin="158,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423" FontFamily="Cascadia Code"/>
-        <Button x:Name="BtnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="581,323,0,0" VerticalAlignment="Top" Width="89" Height="16" FontFamily="Cascadia Code" Click="BtnEnviar_Click"/>
+        <Button x:Name="BtnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="581,323,0,0" VerticalAlignment="Top" Width="89" Height="16" FontFamily="Cascadia Code" Click="BtnEnviar_Click" Background="#FF3A62D7" Foreground="White"/>
         <Button x:Name="btnBack" Content="Regresar" HorizontalAlignment="Left" Margin="107,16,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="30" Width="61" Click="btnBack_Click"/>
-        <ComboBox x:Name="CbClientes" HorizontalAlignment="Left" Margin="692,196,0,0" VerticalAlignment="Top" Width="81" Height="21"/>
+        <ComboBox x:Name="CbClientes" HorizontalAlignment="Left" Margin="692,196,0,0" VerticalAlignment="Top" Width="81" Height="21" SelectionChanged="CbClientes_SelectionChanged"/>
         <Label Content="Enviar a" HorizontalAlignment="Left" Margin="692,171,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

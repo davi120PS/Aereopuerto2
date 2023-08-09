@@ -30,7 +30,7 @@ namespace Aereopuerto2.VistaCliente
         ClienteServices services = new ClienteServices();
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text != "" && txtApellido.Text != "" && txtEdad.Text != "" && txtINE.Text != "" && 
+            if (txtNombre.Text != "" && txtApellido.Text != "" && txtEdad.Text != "" && txtINE.Text != "" &&
                 txtTelefono.Text != "" && txtCorreo.Text != "" && cbxServicio.Text != "" && txtPasajeros.Text != "")
             {
                 Cliente cliente = new Cliente()
@@ -62,7 +62,7 @@ namespace Aereopuerto2.VistaCliente
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow interfaz = new ();
+            MainWindow interfaz = new();
             interfaz.Show();
             Close();
         }

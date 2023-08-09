@@ -1,5 +1,6 @@
 ﻿using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
+using Google.Protobuf.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Aereopuerto2.VistaCliente
         ClienteServices services = new ClienteServices();
         private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            if(txtNoReserva.Text != "")
+            if (txtNoReserva.Text != "")
             {
                 int NoReserva = int.Parse(txtNoReserva.Text);
                 Cliente empleado = services.Read(NoReserva);
@@ -46,7 +47,7 @@ namespace Aereopuerto2.VistaCliente
                     txtHoraConductor.Text = empleado.HoraConductor.ToString();
                     txtHoraHotel.Text = empleado.HoraHotel.ToString();
                     //txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
-                    if (empleado.Solicitud=="Listo")
+                    if (empleado.Solicitud == "Listo")
                     {
                         txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
                     }
@@ -126,7 +127,7 @@ namespace Aereopuerto2.VistaCliente
         }
         private void BtnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow interfaz = new ();
+            MainWindow interfaz = new();
             interfaz.Show();
             Close();
         }

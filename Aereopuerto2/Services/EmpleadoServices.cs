@@ -186,7 +186,7 @@ namespace Aereopuerto2.Services
                 using (var _context = new ApplicationDbContext())
                 {
                     List<Cliente> client = _context.Cliente
-                        .Include(x=>x.Empleado)
+                        .Include(x => x.Empleado)
                         .Where(e => e.Empleado.Puesto == "Conductor")
                         .Where(e => e.Empleado.Conexion == 1)
                         .Where(e => e.FKEmpleado == e.Empleado.PKEmpleado)
@@ -206,7 +206,7 @@ namespace Aereopuerto2.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Empleado> conductor = _context.Empleado.Where(x=>x.Puesto == "Conductor").ToList();
+                    List<Empleado> conductor = _context.Empleado.Where(x => x.Puesto == "Conductor").ToList();
                     return conductor;
                 }
             }
