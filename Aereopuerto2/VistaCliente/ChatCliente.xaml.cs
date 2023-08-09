@@ -35,11 +35,12 @@ namespace Aereopuerto2.VistaCliente
         {
             if (txtPKChat.Text == "")
             {
+                int i = 0; i++;
                 Chat chat = new Chat()
                 {
                     Mensaje = txtMensaje.Text,
                     FKEmpleado = int.Parse(CbConductor.SelectedValue.ToString()),
-                    FKCliente = 1,
+                    FKCliente = i,
                     Remitente = "",
                 };
                 conductor.AddChat(chat);
