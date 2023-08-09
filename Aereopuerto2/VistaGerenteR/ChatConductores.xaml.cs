@@ -37,17 +37,21 @@ namespace Aereopuerto2.VistaGerenteR
         {
             if (txtPKChat.Text == "")
             {
-                Chat chat = new Chat()
+                if (CbConductores.Text != null)
                 {
-                    Mensaje = txtMensaje.Text,
-                    FKEmpleado = int.Parse(CbConductores.SelectedValue.ToString()),
-                    Gerente = GetEmpleadoActivo(),
-                };
-
-                services2.AddChatGerente(chat);
-                MessageBox.Show("Mensaje enviado");
-                txtMensaje.Clear();
-                GetChatTable();
+                    Chat chat = new Chat()
+                    {
+                        Mensaje = txtMensaje.Text,
+                        FKEmpleado = int.Parse(CbConductores.SelectedValue.ToString()),
+                        Gerente = GetEmpleadoActivo(),
+                    };
+                    services2.AddChatGerente(chat);
+                    MessageBox.Show("Mensaje enviado");
+                    txtMensaje.Clear();
+                    GetChatTable();
+                }
+                else
+                    MessageBox.Show("Selecciona un conductor");
             }
             else
             {
@@ -99,14 +103,21 @@ namespace Aereopuerto2.VistaGerenteR
         }
         public void DeleteItem(object sender, RoutedEventArgs e)
         {
-            int chatId = Convert.ToInt32(txtPKChat.Text);
-            Chat chat = new Chat();
-            chat.PKChat = chatId;
-            conductorSevices.DeleteChat(chatId);
-            MessageBox.Show("Mensaje eliminado");
-            txtPKChat.Clear();
-            txtMensaje.Clear();
-            GetChatTable();
+            if (txtPKChat.Text != "")
+            {
+                int chatId = Convert.ToInt32(txtPKChat.Text);
+                Chat chat = new Chat();
+                chat.PKChat = chatId;
+                conductorSevices.DeleteChat(chatId);
+                MessageBox.Show("Mensaje eliminado");
+                txtPKChat.Clear();
+                txtMensaje.Clear();
+                GetChatTable();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un mensaje");
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
