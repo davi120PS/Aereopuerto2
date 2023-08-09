@@ -216,5 +216,21 @@ namespace Aereopuerto2.Services
                 throw new Exception("Error " + ex.Message);
             }
         }
+        public string GetEmpleadoActivo()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Empleado empl = _context.Empleado.FirstOrDefault(x => x.Conexion == 1);
+                    return empl.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("ERROR: " + ex.Message);
+            }
+        }
     }
 }

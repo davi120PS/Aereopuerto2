@@ -1,4 +1,5 @@
-﻿using Aereopuerto2.Entities;
+﻿using Aereopuerto2.Contex;
+using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
 using Aereopuerto2.VistaConductor;
 using System;
@@ -26,23 +27,30 @@ namespace Aereopuerto2.VistaGerenteR
         {
             InitializeComponent();
             GetChatTable();
-            //GetGerentes();
+            GetConductores();
         }
         EmpleadoServices services = new EmpleadoServices();
         ConductorSevices conductorSevices = new ConductorSevices();
+        GerenteRServices services2 = new GerenteRServices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
             if (txtPKChat.Text == "")
             {
-                Chat chat = new Chat()
+                if (CbConductores.Text != null)
                 {
-                    Mensaje = txtMensaje.Text,
-                };
-
-                conductorSevices.AddChat(chat);
-                MessageBox.Show("Mensaje enviado");
-                txtMensaje.Clear();
-                GetChatTable();
+                    Chat chat = new Chat()
+                    {
+                        Mensaje = txtMensaje.Text,
+                        FKEmpleado = int.Parse(CbConductores.SelectedValue.ToString()),
+                        Remitente = services.GetEmpleadoActivo(),
+                    };
+                    services2.AddChatGerente(chat);
+                    MessageBox.Show("Mensaje enviado");
+                    txtMensaje.Clear();
+                    GetChatTable();
+                }
+                else
+                    MessageBox.Show("Selecciona un conductor");
             }
             else
             {
@@ -59,15 +67,16 @@ namespace Aereopuerto2.VistaGerenteR
                 GetChatTable();
             }
         }
+        
         public void GetChatTable()
         {
-            ChatTable.ItemsSource = conductorSevices.GetChat();
+            ChatTable.ItemsSource = services2.GetChatGerente();
         }
-        public void GetComductores()
+        public void GetConductores()
         {
-            CbClientes.ItemsSource = services.GetConductores();
-            CbClientes.DisplayMemberPath = "Nombre";
-            CbClientes.SelectedValuePath = "PKEmpleado";
+            CbConductores.ItemsSource = services.GetConductores();
+            CbConductores.DisplayMemberPath = "Nombre";
+            CbConductores.SelectedValuePath = "PKEmpleado";
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
@@ -78,19 +87,26 @@ namespace Aereopuerto2.VistaGerenteR
         }
         public void DeleteItem(object sender, RoutedEventArgs e)
         {
-            int chatId = Convert.ToInt32(txtPKChat.Text);
-            Chat chat = new Chat();
-            chat.PKChat = chatId;
-            conductorSevices.DeleteChat(chatId);
-            MessageBox.Show("Mensaje eliminado");
-            txtPKChat.Clear();
-            txtMensaje.Clear();
-            GetChatTable();
+            if (txtPKChat.Text != "")
+            {
+                int chatId = Convert.ToInt32(txtPKChat.Text);
+                Chat chat = new Chat();
+                chat.PKChat = chatId;
+                conductorSevices.DeleteChat(chatId);
+                MessageBox.Show("Mensaje eliminado");
+                txtPKChat.Clear();
+                txtMensaje.Clear();
+                GetChatTable();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un mensaje");
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            ListaServicios listaServicios = new ListaServicios();
+            HorariosConductor listaServicios = new HorariosConductor();
             listaServicios.Show();
             Close();
         }

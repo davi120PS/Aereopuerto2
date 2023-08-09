@@ -27,37 +27,56 @@ namespace Aereopuerto2.VistaCliente
             InitializeComponent();
             GetChatTable();
         }
+        EmpleadoServices services = new EmpleadoServices();
         ConductorSevices conductor = new ConductorSevices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtPKChat.Text == "")
+            if(txtPKChat.Text == "")
             {
-                Chat chat = new Chat()
+                if (CbConductor != null)
                 {
-                    Mensaje = txtMensaje.Text,
-                };
-                conductor.AddChat(chat);
-                //MessageBox.Show("Mensaje enviado");
-                txtMensaje.Clear();
-                GetChatTable();
+                    Chat chat = new Chat()
+                    {
+                        Mensaje = txtMensaje.Text,
+                        FKCliente = 0,
+                        FKEmpleado = int.Parse(CbConductor.SelectedValue.ToString())
+                    };
+                    conductor.AddChat(chat);
+                    //MessageBox.Show("Mensaje enviado");
+                    txtMensaje.Clear();
+                    GetChatTable();
+                }
+                else
+                    MessageBox.Show("Selecciona al conductor");
             }
             else
             {
-                int chatId = Convert.ToInt32(txtPKChat.Text);
-                Chat chat = new Chat()
+                if (CbConductor != null)
                 {
-                    PKChat = chatId,
-                    Mensaje = txtMensaje.Text,
-                };
-                //MessageBox.Show("Mensaje editado");
-                conductor.UpdateMessage(chat);
-                txtMensaje.Clear();
-                GetChatTable();
+                    int chatId = Convert.ToInt32(txtPKChat.Text);
+                    Chat chat = new Chat()
+                    {
+                        PKChat = chatId,
+                        Mensaje = txtMensaje.Text,
+                    };
+                    //MessageBox.Show("Mensaje editado");
+                    conductor.UpdateMessage(chat);
+                    txtMensaje.Clear();
+                    GetChatTable();
+                }
+                else
+                    MessageBox.Show("Selecciona al conductor");
             }
         }
         public void GetChatTable()
         {
             ChatTable.ItemsSource = conductor.GetChat();
+        }
+        public void GetConductores()
+        {
+            CbConductor.ItemsSource = services.GetConductores();
+            CbConductor.DisplayMemberPath = "Nombre";
+            CbConductor.SelectedValuePath = "PKEmpleado";
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {

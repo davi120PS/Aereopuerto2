@@ -15,6 +15,8 @@ namespace Aereopuerto2.Entities
         public Cliente Cliente { get; set; }
         [ForeignKey("Empleado")] public int? FKEmpleado { get; set; }
         public Empleado Empleado { get; set; }
+        public string Remitente { get; set; }
+        public string Conductor { get; set; }
         public string Mensaje { get; set; }
     }
 }

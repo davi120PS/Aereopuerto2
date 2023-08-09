@@ -28,6 +28,7 @@ namespace Aereopuerto2.VistaConductor
             GetClientes();
         }
         EmpleadoServices services = new EmpleadoServices();
+        GerenteRServices services2 = new GerenteRServices();
         ConductorSevices conductorSevices = new ConductorSevices();
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
@@ -36,8 +37,9 @@ namespace Aereopuerto2.VistaConductor
                 Chat chat = new Chat()
                 {
                     Mensaje = txtMensaje.Text,
+                    FKCliente = int.Parse(CbClientes.SelectedValue.ToString()),
+                    Remitente = services.GetEmpleadoActivo(),
                 };
-
                 conductorSevices.AddChat(chat);
                 MessageBox.Show("Mensaje enviado");
                 txtMensaje.Clear();

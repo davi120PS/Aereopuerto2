@@ -93,7 +93,7 @@ namespace Aereopuerto2.Services
                     List<Chat> chat = _context.Chat
                         .Include(x => x.Cliente)
                         .Include(x => x.Empleado)
-                        //.Where(x => x.FKCliente == x.Cliente.PKCliente)
+                        .Where(x => x.FKCliente == x.Cliente.PKCliente)
                         //.Where(x => x.FKEmpleado == x.Empleado.PKEmpleado)
                         //.Where(x => x.Empleado.Conexion == 1)
                         .ToList();

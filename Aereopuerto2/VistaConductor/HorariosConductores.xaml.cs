@@ -58,6 +58,8 @@ namespace Aereopuerto2.VistaConductor
                 CbEstatus.Text = "";
                 GetHorarioTable();
             }
+            else
+                MessageBox.Show("Selecciona un registro");
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
