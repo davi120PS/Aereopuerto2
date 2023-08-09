@@ -38,7 +38,7 @@ namespace Aereopuerto2.VistaConductor
                 {
                     Mensaje = txtMensaje.Text,
                     FKCliente = int.Parse(CbClientes.SelectedValue.ToString()),
-                    Remitente = services.GetEmpleadoActivo(),
+                    Remitente = conductorSevices.GetConductorActivo(),
                 };
 
                 conductorSevices.AddChat(chat);
@@ -63,11 +63,11 @@ namespace Aereopuerto2.VistaConductor
         }
         public void GetChatTable()
         {
-            ChatTable.ItemsSource = conductorSevices.GetChat();
+            ChatTable.ItemsSource = conductorSevices.GetChat().Where(x => x.FKCliente != null);
         }
         public void GetClientes()
         {
-            CbClientes.ItemsSource = services.GetSoloCliente();
+            CbClientes.ItemsSource = services.GetClientes();
             CbClientes.DisplayMemberPath = "Nombre";
             CbClientes.SelectedValuePath = "PKCliente";
         }
@@ -95,6 +95,11 @@ namespace Aereopuerto2.VistaConductor
             ListaServicios listaServicios = new ListaServicios();
             listaServicios.Show();
             Close();
+        }
+
+        private void CbClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
