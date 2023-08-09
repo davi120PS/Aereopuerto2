@@ -9,7 +9,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Aereopuerto2.Migrations
 {
     /// <inheritdoc />
-    public partial class Aereopuerto23AM : Migration
+    public partial class example : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -123,6 +123,7 @@ namespace Aereopuerto2.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     FKCliente = table.Column<int>(type: "int", nullable: true),
                     FKEmpleado = table.Column<int>(type: "int", nullable: true),
+                    Gerente = table.Column<string>(type: "longtext", nullable: false),
                     Mensaje = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>

@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="194,144,134,42">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Conductor" Binding="{Binding PKEmpleado.Nombre}" />
+                <DataGridTextColumn Header="Conductor" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
                 <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}" />
                 <DataGridTemplateColumn Header="Chat">

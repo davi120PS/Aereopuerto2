@@ -29,7 +29,7 @@ namespace Aereopuerto2.VistaGerenteR
         EmpleadoServices services = new EmpleadoServices();
         public void GetHorarioTable()
         {
-            HorariosTable.ItemsSource = services.GetConductores();
+            HorariosTable.ItemsSource = services.GetConductores().Where(x => x.Estatus == "Disponible");
         }
         private void ChatConductor_Click(object sender, RoutedEventArgs e)
         {

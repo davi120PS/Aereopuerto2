@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230809014558_Aereopuerto23AM")]
-    partial class Aereopuerto23AM
+    [Migration("20230809130637_example")]
+    partial class example
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,10 @@ namespace Aereopuerto2.Migrations
 
                     b.Property<int?>("FKEmpleado")
                         .HasColumnType("int");
+
+                    b.Property<string>("Gerente")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Mensaje")
                         .IsRequired()

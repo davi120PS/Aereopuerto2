@@ -80,7 +80,7 @@ namespace Aereopuerto2.VistaCliente
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            ListaServicios listaServicios = new ListaServicios();
+            ConsultaCliente listaServicios = new ConsultaCliente();
             listaServicios.Show();
             Close();
         }

@@ -1,5 +1,6 @@
 ﻿using Aereopuerto2.Contex;
 using Aereopuerto2.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,65 @@ namespace Aereopuerto2.Services
             catch (Exception ex)
             {
                 throw new Exception("ERROR: " + ex.Message);
+            }
+        }
+        public List<Empleado> GetConductores()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Empleado> empleados = _context.Empleado
+                        .Where(e => e.Puesto == "Conductor")
+                        .ToList();
+                    return empleados;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
+            }
+        }
+        public void AddChatGerente(Chat request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    //Los corchetes son como abrir y cerrar la base de datos
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Chat res = new Chat();
+                        res.Mensaje = request.Mensaje;
+                        res.FKEmpleado = request.FKEmpleado;
+                        res.Gerente = request.Gerente;
+                        _context.Chat.Add(res);
+                        _context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un error " + ex.Message);
+            }
+        }
+        public List<Chat> GetChatGerente()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Chat> chat = _context.Chat
+                        .Include(x => x.Empleado)
+                        .ToList();
+                    return chat;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
             }
         }
     }

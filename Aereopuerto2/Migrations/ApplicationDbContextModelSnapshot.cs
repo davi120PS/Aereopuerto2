@@ -31,6 +31,10 @@ namespace Aereopuerto2.Migrations
                     b.Property<int?>("FKEmpleado")
                         .HasColumnType("int");
 
+                    b.Property<string>("Gerente")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Mensaje")
                         .IsRequired()
                         .HasColumnType("longtext");
