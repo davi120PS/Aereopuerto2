@@ -49,16 +49,64 @@ namespace Aereopuerto2
                     switch (response.Puesto)
                     {
                         case "Reservas":
+                            try
+                            {
+                                using (var _context = new ApplicationDbContext())
+                                {
+                                    Empleado empleado = new Empleado()
+                                    {
+                                        PKEmpleado = response.PKEmpleado,
+                                        Conexion = 1
+                                    };
+                                    services.UpdateEstado(empleado);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new Exception("Sucedió un error" + ex.Message);
+                            }
                             MenuGerenteR menu = new MenuGerenteR();
                             menu.Show();
                             Close();
                             break;
                         case "Conductor":
+                            try
+                            {
+                                using (var _context = new ApplicationDbContext())
+                                {
+                                    Empleado empleado = new Empleado()
+                                    {
+                                        PKEmpleado = response.PKEmpleado,
+                                        Conexion = 1
+                                    };
+                                    services.UpdateEstado(empleado);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new Exception("Sucedió un error" + ex.Message);
+                            }
                             ListaServicios listaServicios = new ListaServicios();
                             listaServicios.Show();
                             Close();
                             break;
                         case "Sistema":
+                            try
+                            {
+                                using (var _context = new ApplicationDbContext())
+                                {
+                                    Empleado empleado = new Empleado()
+                                    {
+                                        PKEmpleado = response.PKEmpleado,
+                                        Conexion = 1
+                                    };
+                                    services.UpdateEstado(empleado);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new Exception("Sucedió un error" + ex.Message);
+                            }
                             MenuSistemas sistema = new MenuSistemas();
                             sistema.Show();
                             Close();

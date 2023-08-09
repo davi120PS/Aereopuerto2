@@ -1,6 +1,7 @@
 ﻿using Aereopuerto2.Contex;
 using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
+using Microsoft.EntityFrameworkCore;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,6 @@ namespace Aereopuerto2.Services
             {
                 throw new Exception("Ocurrio un error " + ex.Message);
             }
-
         }
         public List<Chat> GetChat()
         {
@@ -90,7 +90,13 @@ namespace Aereopuerto2.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Chat> chat = _context.Chat.ToList();
+                    List<Chat> chat = _context.Chat
+                        .Include(x => x.Cliente)
+                        .Include(x => x.Empleado)
+                        //.Where(x => x.FKCliente == x.Cliente.PKCliente)
+                        //.Where(x => x.FKEmpleado == x.Empleado.PKEmpleado)
+                        //.Where(x => x.Empleado.Conexion == 1)
+                        .ToList();
                     return chat;
                 }
             }

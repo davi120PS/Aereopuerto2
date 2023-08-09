@@ -33,22 +33,27 @@ namespace Aereopuerto2.VistaGerenteR
         GerenteRServices services3 = new GerenteRServices();
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            int userId = Convert.ToInt32(txtNoReserva.Text);
-
-            Cliente cliente = new Cliente()
+            if (CbHoraConductor != null && CbHoraHotel != null && CbNombreConductor != null)
             {
-                PKCliente = int.Parse(txtNoReserva.Text),
-                Estatus = "En curso",
-                Solicitud = "Listo",
-                FKEmpleado = GetConductorById(),
-                HoraHotel = CbHoraHotel.Text,
-                HoraConductor = CbHoraConductor.Text,
-            };
-            services3.UpdateReserva(cliente);
-            MessageBox.Show("Reserva Confirmada");
-            MenuGerenteR vista = new MenuGerenteR();
-            vista.Show();
-            Close();
+                int userId = Convert.ToInt32(txtNoReserva.Text);
+                Cliente cliente = new Cliente()
+                {
+                    PKCliente = userId,
+                    Estatus = "En curso",
+                    Solicitud = "Listo",
+                    //FKEmpleado = int.Parse(CbNombreConductor.SelectedValue.ToString()),
+                    FKEmpleado = GetConductorById(),
+                    HoraHotel = CbHoraHotel.Text,
+                    HoraConductor = CbHoraConductor.Text
+                };
+                services3.UpdateReserva(cliente);
+                MessageBox.Show("Reserva Confirmada");
+                MenuGerenteR vista = new MenuGerenteR();
+                vista.Show();
+                Close();
+            }
+            else
+                MessageBox.Show("Rellena los campos faltantes");
         }
         private void BtnCancelarR_Click(object sender, RoutedEventArgs e)
         {

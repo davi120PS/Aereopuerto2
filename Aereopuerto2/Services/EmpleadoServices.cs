@@ -1,5 +1,6 @@
 ﻿using Aereopuerto2.Contex;
 using Aereopuerto2.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,7 +132,28 @@ namespace Aereopuerto2.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
-                    List<Empleado> empleados = _context.Empleado.Where(e => e.Puesto == "Conductor").ToList();
+                    List<Empleado> empleados = _context.Empleado
+                        .Where(e => e.Puesto == "Conductor")
+                        .ToList();
+                    return empleados;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
+            }
+        }
+        public List<Empleado> GetSoloConductor()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Empleado> empleados = _context.Empleado
+                        .Where(e => e.Puesto == "Conductor")
+                        .Where(e => e.Conexion == 1)
+                        .ToList();
                     return empleados;
                 }
             }
@@ -148,6 +170,27 @@ namespace Aereopuerto2.Services
                 using (var _context = new ApplicationDbContext())
                 {
                     List<Cliente> client = _context.Cliente.ToList();
+                    return client;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error " + ex.Message);
+            }
+        }
+        public List<Cliente> GetSoloCliente()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Cliente> client = _context.Cliente
+                        .Include(x=>x.Empleado)
+                        .Where(e => e.Empleado.Puesto == "Conductor")
+                        .Where(e => e.Empleado.Conexion == 1)
+                        .Where(e => e.FKEmpleado == e.Empleado.PKEmpleado)
+                        .ToList();
                     return client;
                 }
             }

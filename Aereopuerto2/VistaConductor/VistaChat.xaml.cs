@@ -64,7 +64,7 @@ namespace Aereopuerto2.VistaConductor
         }
         public void GetClientes()
         {
-            CbClientes.ItemsSource = services.GetClientes();
+            CbClientes.ItemsSource = services.GetSoloCliente();
             CbClientes.DisplayMemberPath = "Nombre";
             CbClientes.SelectedValuePath = "PKCliente";
         }

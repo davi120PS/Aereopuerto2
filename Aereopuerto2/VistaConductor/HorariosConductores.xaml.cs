@@ -31,7 +31,7 @@ namespace Aereopuerto2.VistaConductor
         ConductorSevices conductorSevices = new ConductorSevices();
         public void GetHorarioTable()
         {
-            HorariosTable.ItemsSource = services.GetConductores();
+            HorariosTable.ItemsSource = services.GetSoloConductor();
         }
         public void EditItem(object sender, RoutedEventArgs e)
         {
@@ -59,7 +59,6 @@ namespace Aereopuerto2.VistaConductor
                 GetHorarioTable();
             }
         }
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             ListaServicios listaServicios = new ListaServicios();

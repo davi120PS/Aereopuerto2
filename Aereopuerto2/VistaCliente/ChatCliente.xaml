@@ -12,7 +12,7 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding PKChat}" />
                 <DataGridTextColumn Header="Mensaje" Binding="{Binding Mensaje}" />
                 <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nombre}" />
-                <DataGridTextColumn Header="Conductor" Binding="{Binding Cliente.NombreConductor}" />
+                <DataGridTextColumn Header="Conductor" Binding="{Binding PKEmpleado.Nombre}" />
 
                 <DataGridTemplateColumn Header="Editar">
                     <DataGridTemplateColumn.CellTemplate>

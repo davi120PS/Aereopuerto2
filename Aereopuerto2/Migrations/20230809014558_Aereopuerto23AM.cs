@@ -174,8 +174,8 @@ namespace Aereopuerto2.Migrations
                 columns: new[] { "PKCliente", "Apellido", "Correo", "Edad", "Estatus", "FKEmpleado", "HoraConductor", "HoraHotel", "INE", "Nombre", "NombreConductor", "Pasajeros", "Solicitud", "Telefono", "TipoServicio" },
                 values: new object[,]
                 {
-                    { 1, "Rabanne", "paco@", 36, null, null, "", "", "PACCB24", "Paco", "", 1, "Aceptable", 23412, "VIP" },
-                    { 2, "Herrera", "caro@", 23, null, null, "", "", "CAHR3G", "Carolina", "", 2, "", 87868, "Premium" }
+                    { 1, "Rabanne", "paco@", 36, "Por confirmar", null, "POR ASIGNAR", "POR ASIGNAR", "PACCB24", "Paco", "", 1, "Aceptable", 23412, "VIP" },
+                    { 2, "Herrera", "caro@", 23, "Por confirmar", null, "POR ASIGNAR", "POR ASIGNAR", "CAHR3G", "Carolina", "", 2, "Aceptable", 87868, "Premium" }
                 });
 
             migrationBuilder.InsertData(
@@ -183,10 +183,10 @@ namespace Aereopuerto2.Migrations
                 columns: new[] { "PKEmpleado", "Conexion", "Contraseña", "Correo", "Estatus", "Horarios", "Matricula", "Nombre", "Puesto", "Sexo" },
                 values: new object[,]
                 {
-                    { 1, null, "123", "davi@", "", "", "davi", "David", "Sistema", "Hombre" },
-                    { 2, null, "123", "dieg@", "", "", "dieg", "Diego", "Reservas", "Hombre" },
-                    { 3, null, "123", "joge@", "", "2PM-10PM", "joge", "Jorge", "Conductor", "Hombre" },
-                    { 4, null, "123", "joge@", "", "10PM-6AM", "jony", "Jonathan", "Conductor", "Hombre" }
+                    { 1, 0, "123", "davi@", "", "", "davi", "David", "Sistema", "Hombre" },
+                    { 2, 0, "123", "dieg@", "", "", "dieg", "Diego", "Reservas", "Hombre" },
+                    { 3, 0, "123", "joge@", "", "2PM-10PM", "joge", "Jorge", "Conductor", "Hombre" },
+                    { 4, 0, "123", "joge@", "", "10PM-6AM", "jony", "Jonathan", "Conductor", "Hombre" }
                 });
 
             migrationBuilder.CreateIndex(

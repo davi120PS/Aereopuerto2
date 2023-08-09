@@ -42,9 +42,14 @@ namespace Aereopuerto2.VistaCliente
                     txtCorreo.Text = empleado.Correo;
                     cbxServicio.Text = empleado.TipoServicio;
                     txtPasajeros.Text = empleado.Pasajeros.ToString();
+                    txtEstatus.Text = empleado.Estatus.ToString();
                     txtHoraConductor.Text = empleado.HoraConductor.ToString();
                     txtHoraHotel.Text = empleado.HoraHotel.ToString();
                     //txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
+                    if (empleado.Solicitud=="Listo")
+                    {
+                        txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKEmpleado.ToString()));
+                    }
 
                     /*switch (empleado.Solicitud)
                     {

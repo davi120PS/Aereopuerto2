@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230808060032_Aereopuerto23AM")]
+    [Migration("20230809014558_Aereopuerto23AM")]
     partial class Aereopuerto23AM
     {
         /// <inheritdoc />
@@ -114,8 +114,9 @@ namespace Aereopuerto2.Migrations
                             Apellido = "Rabanne",
                             Correo = "paco@",
                             Edad = 36,
-                            HoraConductor = "",
-                            HoraHotel = "",
+                            Estatus = "Por confirmar",
+                            HoraConductor = "POR ASIGNAR",
+                            HoraHotel = "POR ASIGNAR",
                             INE = "PACCB24",
                             Nombre = "Paco",
                             NombreConductor = "",
@@ -130,13 +131,14 @@ namespace Aereopuerto2.Migrations
                             Apellido = "Herrera",
                             Correo = "caro@",
                             Edad = 23,
-                            HoraConductor = "",
-                            HoraHotel = "",
+                            Estatus = "Por confirmar",
+                            HoraConductor = "POR ASIGNAR",
+                            HoraHotel = "POR ASIGNAR",
                             INE = "CAHR3G",
                             Nombre = "Carolina",
                             NombreConductor = "",
                             Pasajeros = 2,
-                            Solicitud = "",
+                            Solicitud = "Aceptable",
                             Telefono = 87868,
                             TipoServicio = "Premium"
                         });
@@ -220,6 +222,7 @@ namespace Aereopuerto2.Migrations
                         new
                         {
                             PKEmpleado = 1,
+                            Conexion = 0,
                             Contraseña = "123",
                             Correo = "davi@",
                             Estatus = "",
@@ -232,6 +235,7 @@ namespace Aereopuerto2.Migrations
                         new
                         {
                             PKEmpleado = 2,
+                            Conexion = 0,
                             Contraseña = "123",
                             Correo = "dieg@",
                             Estatus = "",
@@ -244,6 +248,7 @@ namespace Aereopuerto2.Migrations
                         new
                         {
                             PKEmpleado = 3,
+                            Conexion = 0,
                             Contraseña = "123",
                             Correo = "joge@",
                             Estatus = "",
@@ -256,6 +261,7 @@ namespace Aereopuerto2.Migrations
                         new
                         {
                             PKEmpleado = 4,
+                            Conexion = 0,
                             Contraseña = "123",
                             Correo = "joge@",
                             Estatus = "",

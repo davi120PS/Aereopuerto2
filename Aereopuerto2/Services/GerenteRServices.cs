@@ -10,22 +10,6 @@ namespace Aereopuerto2.Services
 {
     public class GerenteRServices
     {
-        public List<Cliente> GetUsuarios()
-        {
-            try
-            {
-                using (var _context = new ApplicationDbContext())
-                {
-                    List<Cliente> usuarios = _context.Cliente.Where(x => x.Solicitud != "Listo").ToList();
-                    return usuarios;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("ERROR: " + ex.Message);
-            }
-        }
         public void UpdateReserva(Cliente request)//recibe todos los datos del cliente
         {
             try
@@ -35,6 +19,7 @@ namespace Aereopuerto2.Services
                     Cliente update = _context.Cliente.Find(request.PKCliente);
                     update.FKEmpleado = request.FKEmpleado;
                     update.Solicitud = "Listo";
+                    update.Estatus = request.Estatus;
                     update.HoraConductor = request.HoraConductor;
                     update.HoraHotel = request.HoraHotel;
 
@@ -65,6 +50,21 @@ namespace Aereopuerto2.Services
             catch (Exception ex)
             {
                 throw new Exception("Sucedió un error" + ex.Message);
+            }
+        }
+        public List<Cliente> GetUsuarios()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Cliente> usuarios = _context.Cliente.Where(x => x.Solicitud != "Listo").ToList();
+                    return usuarios;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ERROR: " + ex.Message);
             }
         }
     }

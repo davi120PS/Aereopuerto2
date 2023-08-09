@@ -18,7 +18,7 @@
                 <DataGridTemplateColumn Header="Chat">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Select" Click="Chat_Click" />
+                            <Button Content="Select" Click="ChatCliente_Click" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

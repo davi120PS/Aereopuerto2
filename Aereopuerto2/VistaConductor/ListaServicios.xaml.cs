@@ -1,6 +1,8 @@
-﻿using Aereopuerto2.Entities;
+﻿using Aereopuerto2.Contex;
+using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +38,21 @@ namespace Aereopuerto2.VistaConductor
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    //Empleado empleado = new Empleado();
+                    Empleado update = _context.Empleado.FirstOrDefault(x => x.Puesto == "Conductor" && x.Conexion == 1);
+                    update.PKEmpleado = update.PKEmpleado;
+                    update.Conexion = 0;
+                    services.UpdateEstado(update);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Sucedió un error" + ex.Message);
+            }
             Login login = new Login();
             login.Show();
             Close();
@@ -47,7 +64,7 @@ namespace Aereopuerto2.VistaConductor
             horarios.Show();
             Close();
         }
-        private void Chat_Click(object sender, RoutedEventArgs e)
+        private void ChatCliente_Click(object sender, RoutedEventArgs e)
         {
             VistaChat chat = new VistaChat();
             chat.Show();

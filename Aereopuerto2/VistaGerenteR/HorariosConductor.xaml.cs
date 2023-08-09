@@ -1,4 +1,5 @@
 ﻿using Aereopuerto2.Services;
+using Aereopuerto2.VistaConductor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,19 @@ namespace Aereopuerto2.VistaGerenteR
         public void GetHorarioTable()
         {
             HorariosTable.ItemsSource = services.GetConductores();
+        }
+        private void ChatConductor_Click(object sender, RoutedEventArgs e)
+        {
+            ChatConductores chat = new ChatConductores();
+            chat.Show();
+            Close();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGerenteR menuGerenteR = new MenuGerenteR();
+            menuGerenteR.Show();
+            Close();
         }
     }
 }

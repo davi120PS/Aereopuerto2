@@ -7,17 +7,24 @@
         mc:Ignorable="d"
         Title="HorariosConductor" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="164,144,164,42">
+        <DataGrid x:Name="HorariosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="194,144,134,42">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Conductor" Binding="{Binding Conductores}" />
+                <DataGridTextColumn Header="Conductor" Binding="{Binding PKEmpleado.Nombre}" />
                 <DataGridTextColumn Header="Horarios" Binding="{Binding Horarios}" />
                 <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}" />
+                <DataGridTemplateColumn Header="Chat">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Select" Click="ChatConductor_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="80" Source="/Img/RectanguloAzul.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="112" Margin="593,10,0,0" VerticalAlignment="Top" Width="183" Source="/Img/Logo.png" Stretch="Fill"/>
         <Label Content="Horarios de conductor" HorizontalAlignment="Center" Margin="0,60,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Cascadia Mono" Foreground="#FF3A62D7"/>
-        <Image HorizontalAlignment="Left" Height="155" Margin="691,283,0,0" VerticalAlignment="Top" Width="58" Source="/Img/RectanguloAzul.png" Stretch="Fill" RenderTransformOrigin="0.414,0.498">
+        <Image HorizontalAlignment="Left" Height="155" Margin="693,285,0,0" VerticalAlignment="Top" Width="58" Source="/Img/RectanguloAzul.png" Stretch="Fill" RenderTransformOrigin="0.414,0.498">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -27,6 +34,6 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-
+        <Button x:Name="btnBack" Content="Regresar" HorizontalAlignment="Left" Margin="107,16,0,0" VerticalAlignment="Top" Background="#FF3A62D7" Foreground="White" FontFamily="Cascadia Code" Height="30" Width="61" Click="btnBack_Click"/>
     </Grid>
 </Window>

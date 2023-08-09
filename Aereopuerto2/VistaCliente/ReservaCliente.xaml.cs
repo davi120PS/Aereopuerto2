@@ -44,7 +44,9 @@ namespace Aereopuerto2.VistaCliente
                     TipoServicio = cbxServicio.Text,
                     Pasajeros = int.Parse(txtPasajeros.Text),
                     Solicitud = "Aceptable",
-                    Estatus = "Por confirmar"
+                    Estatus = "Por confirmar",
+                    HoraConductor = "POR ASIGNAR",
+                    HoraHotel = "POR ASIGNAR"
                 };
                 services.Add(cliente);
                 MessageBox.Show("Reserva generada exitosamente");
