@@ -38,17 +38,18 @@ namespace Aereopuerto2.VistaConductor
                 {
                     Mensaje = txtMensaje.Text,
                     FKCliente = int.Parse(CbClientes.SelectedValue.ToString()),
-                    Remitente = services.GetEmpleadoActivo(),
+                    Remitente = conductorSevices.GetConductorActivo(),
                 };
+
                 conductorSevices.AddChat(chat);
                 MessageBox.Show("Mensaje enviado");
                 txtMensaje.Clear();
+                txtPKChat.Clear();
                 GetChatTable();
             }
             else
             {
                 int chatId = Convert.ToInt32(txtPKChat.Text);
-
                 Chat chat = new Chat()
                 {
                     PKChat = chatId,
@@ -57,16 +58,17 @@ namespace Aereopuerto2.VistaConductor
                 MessageBox.Show("Mensaje editado");
                 conductorSevices.UpdateMessage(chat);
                 txtMensaje.Clear();
+
                 GetChatTable();
             }
         }
         public void GetChatTable()
         {
-            ChatTable.ItemsSource = conductorSevices.GetChat();
+            ChatTable.ItemsSource = conductorSevices.GetChat().Where(x => x.FKCliente != null);
         }
         public void GetClientes()
         {
-            CbClientes.ItemsSource = services.GetSoloCliente();
+            CbClientes.ItemsSource = services.GetClientes();
             CbClientes.DisplayMemberPath = "Nombre";
             CbClientes.SelectedValuePath = "PKCliente";
         }
@@ -79,14 +81,19 @@ namespace Aereopuerto2.VistaConductor
         }
         public void DeleteItem(object sender, RoutedEventArgs e)
         {
-            int chatId = Convert.ToInt32(txtPKChat.Text);
-            Chat chat = new Chat();
-            chat.PKChat = chatId;
-            conductorSevices.DeleteChat(chatId);
-            MessageBox.Show("Mensaje eliminado");
-            txtPKChat.Clear();
-            txtMensaje.Clear();
-            GetChatTable();
+            if (txtPKChat.Text != "")
+            {
+                int chatId = Convert.ToInt32(txtPKChat.Text);
+                Chat chat = new Chat();
+                chat.PKChat = chatId;
+                conductorSevices.DeleteChat(chatId);
+                MessageBox.Show("Mensaje eliminado");
+                txtPKChat.Clear();
+                txtMensaje.Clear();
+                GetChatTable();
+            }
+            else
+                MessageBox.Show("Selecciona un mensaje");
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

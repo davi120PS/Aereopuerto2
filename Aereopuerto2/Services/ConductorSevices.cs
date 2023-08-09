@@ -74,6 +74,7 @@ namespace Aereopuerto2.Services
                         res.Mensaje = request.Mensaje;
                         res.FKCliente = request.FKCliente;
                         res.FKEmpleado = request.FKEmpleado;
+                        res.Remitente = request.Remitente;
                         _context.Chat.Add(res);
                         _context.SaveChanges();
                     }
@@ -93,7 +94,7 @@ namespace Aereopuerto2.Services
                     List<Chat> chat = _context.Chat
                         .Include(x => x.Cliente)
                         .Include(x => x.Empleado)
-                        .Where(x => x.FKCliente == x.Cliente.PKCliente)
+                        //.Where(x => x.FKCliente == x.Cliente.PKCliente)
                         //.Where(x => x.FKEmpleado == x.Empleado.PKEmpleado)
                         //.Where(x => x.Empleado.Conexion == 1)
                         .ToList();
@@ -130,6 +131,21 @@ namespace Aereopuerto2.Services
                 throw new Exception("Error" + ex.Message);
             }
         }
+        public string GetConductorActivo()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Empleado empl = _context.Empleado.Where(x => x.Puesto == "Conductor").FirstOrDefault(x => x.Conexion == 1);
+                    return empl.Nombre;
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw new Exception("ERROR: " + ex.Message);
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Aereopuerto2.Entities;
 using Aereopuerto2.Services;
 using Aereopuerto2.VistaConductor;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,7 +68,7 @@ namespace Aereopuerto2.VistaGerenteR
                 GetChatTable();
             }
         }
-        
+
         public void GetChatTable()
         {
             ChatTable.ItemsSource = services2.GetChatGerente();

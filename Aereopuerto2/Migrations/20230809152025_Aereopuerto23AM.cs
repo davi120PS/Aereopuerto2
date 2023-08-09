@@ -123,6 +123,7 @@ namespace Aereopuerto2.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     FKCliente = table.Column<int>(type: "int", nullable: true),
                     FKEmpleado = table.Column<int>(type: "int", nullable: true),
+                    Remitente = table.Column<string>(type: "longtext", nullable: false),
                     Mensaje = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
@@ -135,34 +136,6 @@ namespace Aereopuerto2.Migrations
                         principalColumn: "PKCliente");
                     table.ForeignKey(
                         name: "FK_Chat_Empleado_FKEmpleado",
-                        column: x => x.FKEmpleado,
-                        principalTable: "Empleado",
-                        principalColumn: "PKEmpleado");
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Reserva",
-                columns: table => new
-                {
-                    PKReservas = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    FKEmpleado = table.Column<int>(type: "int", nullable: true),
-                    FKCliente = table.Column<int>(type: "int", nullable: true),
-                    HoraConductor = table.Column<string>(type: "longtext", nullable: false),
-                    HoraHotel = table.Column<string>(type: "longtext", nullable: false),
-                    Estatus = table.Column<string>(type: "longtext", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reserva", x => x.PKReservas);
-                    table.ForeignKey(
-                        name: "FK_Reserva_Cliente_FKCliente",
-                        column: x => x.FKCliente,
-                        principalTable: "Cliente",
-                        principalColumn: "PKCliente");
-                    table.ForeignKey(
-                        name: "FK_Reserva_Empleado_FKEmpleado",
                         column: x => x.FKEmpleado,
                         principalTable: "Empleado",
                         principalColumn: "PKEmpleado");
@@ -210,16 +183,6 @@ namespace Aereopuerto2.Migrations
                 column: "FKEmpleado");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reserva_FKCliente",
-                table: "Reserva",
-                column: "FKCliente");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reserva_FKEmpleado",
-                table: "Reserva",
-                column: "FKEmpleado");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Sistema_FKEmpleado",
                 table: "Sistema",
                 column: "FKEmpleado");
@@ -233,9 +196,6 @@ namespace Aereopuerto2.Migrations
 
             migrationBuilder.DropTable(
                 name: "Conductor");
-
-            migrationBuilder.DropTable(
-                name: "Reserva");
 
             migrationBuilder.DropTable(
                 name: "Sistema");

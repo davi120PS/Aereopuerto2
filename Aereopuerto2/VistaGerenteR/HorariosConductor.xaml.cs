@@ -25,14 +25,11 @@ namespace Aereopuerto2.VistaGerenteR
         {
             InitializeComponent();
             GetHorarioTable();
-            //GetConductores();
         }
         EmpleadoServices services = new EmpleadoServices();
-        ConductorSevices conductorSevices = new ConductorSevices();
-        GerenteRServices services2 = new GerenteRServices();
         public void GetHorarioTable()
         {
-            HorariosTable.ItemsSource = services.GetConductores().Where(x=>x.Estatus == "Disponible");
+            HorariosTable.ItemsSource = services.GetConductores().Where(x => x.Estatus == "Disponible");
         }
         private void ChatConductor_Click(object sender, RoutedEventArgs e)
         {
