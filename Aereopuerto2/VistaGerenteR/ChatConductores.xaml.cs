@@ -43,7 +43,7 @@ namespace Aereopuerto2.VistaGerenteR
                     {
                         Mensaje = txtMensaje.Text,
                         FKEmpleado = int.Parse(CbConductores.SelectedValue.ToString()),
-                        Gerente = GetEmpleadoActivo(),
+                        Remitente = services.GetEmpleadoActivo(),
                     };
                     services2.AddChatGerente(chat);
                     MessageBox.Show("Mensaje enviado");
@@ -68,22 +68,7 @@ namespace Aereopuerto2.VistaGerenteR
                 GetChatTable();
             }
         }
-        public string GetEmpleadoActivo()
-        {
-            try
-            {
-                using (var _context = new ApplicationDbContext())
-                {
-                    Empleado empl = _context.Empleado.FirstOrDefault(x => x.Conexion == 1);
-                    return empl.Nombre;
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception("ERROR: " + ex.Message);
-            }
-        }
+        
         public void GetChatTable()
         {
             ChatTable.ItemsSource = services2.GetChatGerente();

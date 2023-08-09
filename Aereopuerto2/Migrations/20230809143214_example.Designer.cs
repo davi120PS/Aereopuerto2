@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aereopuerto2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230809130637_example")]
+    [Migration("20230809143214_example")]
     partial class example
     {
         /// <inheritdoc />
@@ -34,11 +34,11 @@ namespace Aereopuerto2.Migrations
                     b.Property<int?>("FKEmpleado")
                         .HasColumnType("int");
 
-                    b.Property<string>("Gerente")
+                    b.Property<string>("Mensaje")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Mensaje")
+                    b.Property<string>("Remitente")
                         .IsRequired()
                         .HasColumnType("longtext");
 

@@ -98,7 +98,7 @@ namespace Aereopuerto2.Services
                         Chat res = new Chat();
                         res.Mensaje = request.Mensaje;
                         res.FKEmpleado = request.FKEmpleado;
-                        res.Gerente = request.Gerente;
+                        res.Remitente = request.Remitente;
                         _context.Chat.Add(res);
                         _context.SaveChanges();
                     }
