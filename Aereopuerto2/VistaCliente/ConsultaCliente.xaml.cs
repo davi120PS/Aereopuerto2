@@ -44,21 +44,21 @@ namespace Aereopuerto2.VistaCliente
                     txtPasajeros.Text = empleado.Pasajeros.ToString();
                     txtHoraConductor.Text = empleado.HoraConductor.ToString();
                     txtHoraHotel.Text = empleado.HoraHotel.ToString();
-                    txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKConductor.ToString()));
 
                     switch (empleado.Solicitud)
                     {
                         case "Aceptable":
-                            txtEstatus.Text = "En espera";
+                            txtEstatus.Text = "Por confirmar";
                             break;
                         case "Modificable":
-                            txtEstatus.Text = "En espera";
+                            txtEstatus.Text = "Por modificar";
                             break;
                         case "Cancelar":
-                            txtEstatus.Text = "En espera";
+                            txtEstatus.Text = "Por cancelar";
                             break;
                         case "Listo":
-                            txtEstatus.Text = "Aceptada";
+                            txtEstatus.Text = "Reserva aceptada";
+                            txtNombreConductor.Text = services.GetConductores(int.Parse(empleado.FKConductor.ToString()));
                             break;
                     }
                 }

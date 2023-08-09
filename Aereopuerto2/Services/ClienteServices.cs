@@ -29,7 +29,10 @@ namespace Aereopuerto2.Services
                         Correo = request.Correo,
                         TipoServicio = request.TipoServicio,
                         Pasajeros = request.Pasajeros,
-                        Solicitud = "Aceptable"
+                        Solicitud = "Aceptable",
+                        HoraConductor = "",
+                        HoraHotel = "",
+                        FKConductor = null
                     };
                     _context.Cliente.Add(empleado);
                     _context.SaveChanges();
