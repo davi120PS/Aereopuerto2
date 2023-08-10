@@ -70,5 +70,12 @@ namespace Aereopuerto2.VistaConductor
             chat.Show();
             Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChatGerenteR_Conductor gerenteR_Conductor = new();
+            gerenteR_Conductor.Show();
+            Close();
+        }
     }
 }

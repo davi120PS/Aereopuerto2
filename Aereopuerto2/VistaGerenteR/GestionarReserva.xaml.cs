@@ -143,7 +143,7 @@ namespace Aereopuerto2.VistaGerenteR
         {
             CbNombreConductor.ItemsSource = services.GetConductores();
             CbNombreConductor.DisplayMemberPath = "Nombre";
-            CbNombreConductor.SelectedValuePath = "PKConductor";
+            CbNombreConductor.SelectedValuePath = "PKEmpleado";
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {

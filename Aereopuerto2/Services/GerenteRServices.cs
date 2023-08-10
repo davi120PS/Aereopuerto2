@@ -116,7 +116,7 @@ namespace Aereopuerto2.Services
                 using (var _context = new ApplicationDbContext())
                 {
                     List<Chat> chat = _context.Chat
-                        .Include(x => x.Empleado)
+                        .Include(x => x.Empleado).Where(x => x.FKCliente == null)
                         .ToList();
                     return chat;
                 }

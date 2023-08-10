@@ -11,8 +11,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PKChat}" />
                 <DataGridTextColumn Header="Mensaje" Binding="{Binding Mensaje}" />
-                <DataGridTextColumn Header="GerenteR" Binding="{Binding Remitente}" />
-                <DataGridTextColumn Header="Conductor" Binding="{Binding Empleado.Nombre}" />
+                <DataGridTextColumn Header="Remitente" Binding="{Binding Remitente}" />
+                <DataGridTextColumn Header="Destinatario" Binding="{Binding Empleado.Nombre}" />
 
                 <DataGridTemplateColumn Header="Editar">
                     <DataGridTemplateColumn.CellTemplate>
